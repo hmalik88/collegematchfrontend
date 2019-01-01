@@ -3,6 +3,8 @@ import LoginForm from '../components/LoginForm'
 
 export default class LoginContainer extends React.Component {
 
+
+
   render() {
     return(
       <div>
@@ -10,7 +12,7 @@ export default class LoginContainer extends React.Component {
         <p class="collegematch-intro">
           College Match was created with the sole purpose of helping young adults and others seeking higher education an easy way to narrow down their options when it comes to finding a college that is a good fit for them!
         </p>
-        <LoginForm />
+        <LoginForm /><br/>
         <button>Create an Account</button>
       </div>
 

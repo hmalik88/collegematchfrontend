@@ -1,20 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
+import LoginContainer from './containers/LoginContainer'
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <NavBar />
         <LoginContainer />
-        <CreateUserContainer />
-        <DashboardContainer />
-        <CareerTrackContainer />
-        <CTCollegeContainer />
-        <CollegeSearchContainer />
-        <CollegeContainer />
-        <RecCollegesFormContainer />
-        <RecCollegeContainer />
       </div>
     );
   }
