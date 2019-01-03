@@ -24,7 +24,7 @@ class App extends Component {
     }
   }
   this.setUser(login)
-  this.props.history.push("/dashboard")
+
   }
 
   setUser = login => {
@@ -41,10 +41,15 @@ class App extends Component {
       localStorage.setItem("token", res.jwt)
       this.setState({user: res.user})
     })
+    .then(() => {
+      this.props.history.push("/dashboard")
+    })
+
   }
 
   logOut = () => {
     localStorage.removeItem("token")
+    this.setState({user: null})
   }
 
   componentDidMount() {
@@ -70,9 +75,9 @@ class App extends Component {
       <div className="App">
         <NavBar logOut={this.logOut} />
         <Switch>
-          <Route exact path="/dashboard" render={() => <DashboardContainer user={this.state.user} />} />
+          <Route path="/dashboard" render={() => <DashboardContainer user={this.state.user} />} />
           <Route path="/signup" component={CreateUserContainer} />
-          <Route exact path="/login" render={() => <LoginContainer handleLogin={this.handleLogin} />} />
+          <Route path="/login" render={() => <LoginContainer handleLogin={this.handleLogin} />} />
           <Route path="/" render={WelcomeContainer} />
         </Switch>
       </div>

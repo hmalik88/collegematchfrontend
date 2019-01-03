@@ -9,7 +9,7 @@ export default class NavBar extends React.Component {
           <Link to="/dashboard"><li>Home</li></Link>
           <Link to="/login" ><li onClick={this.props.logOut}>Log Out</li></Link>
         </ul>
-        </React.Fragment>
+      </React.Fragment>
       )
   }
 }
