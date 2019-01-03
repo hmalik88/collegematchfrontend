@@ -1,25 +1,83 @@
 import React, { Component } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect, withRouter} from 'react-router-dom';
 import './App.css';
 import LoginContainer from './containers/LoginContainer'
 import CreateUserContainer from './containers/CreateUserContainer'
-
+import WelcomeContainer from './containers/WelcomeContainer'
+import DashboardContainer from './containers/DashboardContainer'
+import NavBar from './containers/NavBar'
 
 class App extends Component {
-  render() {
-    let changeURL = () => {
-      let newState = {goal: "Login or sign up!"}
-      window.history.pushState(newState, "login", "login")
+  constructor() {
+    super()
+    this.state= {user: null}
+  }
+
+  handleLogin = e => {
+  e.preventDefault()
+  let email = e.target[0].value
+  let password = e.target[1].value
+  let login = {
+    user: {
+      "e_mail": email,
+      "password": password
     }
+  }
+  this.setUser(login)
+  this.props.history.push("/dashboard")
+  }
+
+  setUser = login => {
+    fetch('http://localhost:3000/api/v1/login', {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      method: 'POST',
+      body: JSON.stringify(login)
+    })
+    .then(res => res.json())
+    .then(res => {
+      localStorage.setItem("token", res.jwt)
+      this.setState({user: res.user})
+    })
+  }
+
+  logOut = () => {
+    localStorage.removeItem("token")
+  }
+
+  componentDidMount() {
+    let token = localStorage.getItem("token")
+    if (token !== null ) {
+      fetch('http://localhost:3000/api/v1/current_user', {
+      method: 'GET',
+      headers: {
+        "Content-Type": "application/json",
+        Action: "application/json",
+        Authorization: `Bearer ${token}`
+      }
+    })
+    .then(res => res.json())
+    .then(res => this.setState({user: res.user}))
+  } else {
+    return <Redirect to="/login" />
+  }
+  }
+
+  render() {
     return (
       <div className="App">
+        <NavBar logOut={this.logOut} />
         <Switch>
+          <Route exact path="/dashboard" render={() => <DashboardContainer user={this.state.user} />} />
           <Route path="/signup" component={CreateUserContainer} />
-          <Route exact path="/" component={LoginContainer} />
+          <Route exact path="/login" render={() => <LoginContainer handleLogin={this.handleLogin} />} />
+          <Route path="/" render={WelcomeContainer} />
         </Switch>
       </div>
     );
   }
 }
 
-export default App;
+export default withRouter(App);

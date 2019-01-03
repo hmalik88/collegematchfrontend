@@ -15,7 +15,7 @@ export default class LoginForm extends React.Component {
   render() {
     return(
       <div>
-        <form onSubmit={this.props.handleSubmit}>
+        <form onSubmit={this.props.handleLogin}>
           E-mail: <input onChange={this.handleChange} type="text" value={this.state.email} /><br/>
           Password: <input onChange={this.handleChange} type="password" value={this.state.password} /><br/>
           <button type="submit">Login</button>
