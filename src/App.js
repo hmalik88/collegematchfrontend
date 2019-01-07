@@ -7,6 +7,7 @@ import WelcomeContainer from './containers/WelcomeContainer'
 import DashboardContainer from './containers/DashboardContainer'
 import NavBar from './containers/NavBar'
 import CollegeSearchContainer from './containers/CollegeSearchContainer'
+import CollegeContainer from './containers/CollegeContainer'
 
 class App extends Component {
   constructor() {
@@ -76,6 +77,7 @@ class App extends Component {
       <div className="App">
         <NavBar logOut={this.logOut} />
         <Switch>
+          <Route path="/:linkName/info" render={() => <CollegeContainer props={this.props} unitId={this.props.location.unitId} />} />
           <Route exact path="/dashboard" render={() => <DashboardContainer user={this.state.user} />} />
           <Route exact path="/search" component={CollegeSearchContainer} />
           <Route exact path="/signup" component={CreateUserContainer} />
