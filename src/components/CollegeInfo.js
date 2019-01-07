@@ -6,7 +6,8 @@ export default class CollegeInfo extends React.Component {
       <div>
         <h1>Name: {this.props.college.name}</h1>
         City: {this.props.college.city}<br/>
-        Tuition: {this.props.college.inStateTuition}
+        Tuition: {this.props.college.inStateTuition}<br/>
+        Average Federal Grant Aid:
       </div>
       )
   }
