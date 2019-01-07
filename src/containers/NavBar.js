@@ -8,6 +8,7 @@ export default class NavBar extends React.Component {
         <ul>
           <Link to="/dashboard"><li>Home</li></Link>
           <Link to="/login" ><li onClick={this.props.logOut}>Log Out</li></Link>
+          <Link to="/search" ><li>Search</li></Link>
         </ul>
       </React.Fragment>
       )
