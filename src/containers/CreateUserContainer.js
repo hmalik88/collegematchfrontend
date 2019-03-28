@@ -31,7 +31,12 @@ export default class CreateUserContainer extends React.Component {
   }
 
   render() {
-    return(<CreateUserForm handleSubmit={this.handleSubmit} />)
+    return(
+      <div>
+      <h1>Create Your Account</h1>
+      <CreateUserForm handleSubmit={this.handleSubmit} />
+      </div>
+      )
   }
 
 }
