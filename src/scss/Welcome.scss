@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:200,200i,400,500,600i');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,400,500,500i,600i');
 
 body {
   background-image: url('../images/collegematchbg.svg');
@@ -8,21 +8,58 @@ body {
   height: 100vh;
 }
 
+#root {
+  display: grid;
+  grid-template-columns: 10% 12% 12% auto;
+  grid-template-rows: 37% 25% auto;
+  width: 100%;
+  height: 100%;
+}
+
 h1.welcome {
   font-family: 'Montserrat', sans-serif;
   font-size: 94px;
-  font-weight: 200;
+  font-weight: 100;
   text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+  grid-column: 4 / 5;
+  grid-row: 1;
+  align-self: bottom;
 }
 
 p.collegematch-intro {
   font-family: 'Montserrat', sans-serif;
   font-size: 34px;
-  font-weight: 200;
+  font-weight: 100;
   font-style: italic;
+  grid-column: 4 / 5 ;
+  grid-row: 2;
+  align-self: top;
   span.maters {
-    font-weight: 600;
+    font-weight: 500;
   }
 
 }
+
+div.welcome-button {
+  display: grid;
+  width: 478px;
+  height: 96px;
+  background-color: #486CB2;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 34px;
+  font-weight: 500;
+  border-radius: 17px;
+  box-shadow: 3px 3px 3px rgba(0,0,0,0.16);
+  justify-content: center;
+  align-items: center;
+  grid-column: 4 / 5;
+  grid-row: 3;
+  align-self: center;
+}
+
+a {
+  text-decoration: none;
+}
+
 

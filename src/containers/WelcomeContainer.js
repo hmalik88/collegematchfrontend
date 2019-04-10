@@ -7,10 +7,15 @@ const WelcomeContainer = () => {
     <>
     <h1 className='welcome'>CollegeMatch</h1>
       <p className='collegematch-intro'>
-        Analytics and tracking platform for making the match that <span className='maters'>maters</span>
+        Analytics and tracking platform for<br/> making the match that <span className='maters'>maters</span>
       </p>
-      <Link style={{display: 'inline', height: '100%'}} to="/signup"><button>Create an Account</button></Link>
-      <Link style={{display: 'inline', height: '100%'}} to="/login"><button>Login</button></Link>
+      <Link to="/login">
+        <div className='welcome-button'>
+        <span className='w-button'>
+        Please sign up or log in
+        </span>
+        </div>
+      </Link>
     </>
         )
 }
