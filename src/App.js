@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import { Route, Switch, Redirect, withRouter} from 'react-router-dom';
-import './App.css';
 import LoginContainer from './containers/LoginContainer'
 import CreateUserContainer from './containers/CreateUserContainer'
 import WelcomeContainer from './containers/WelcomeContainer'
 import DashboardContainer from './containers/DashboardContainer'
-import NavBar from './containers/NavBar'
 import CollegeSearchContainer from './containers/CollegeSearchContainer'
 import CollegeContainer from './containers/CollegeContainer'
 
@@ -26,7 +24,6 @@ class App extends Component {
     }
   }
   this.setUser(login)
-
   }
 
   setUser = login => {
@@ -49,10 +46,6 @@ class App extends Component {
 
   }
 
-  logOut = () => {
-    localStorage.removeItem("token")
-    this.setState({user: null})
-  }
 
   componentDidMount() {
     let token = localStorage.getItem("token")
@@ -74,8 +67,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <NavBar logOut={this.logOut} />
+      <>
         <Switch>
           <Route path="/:linkName/info" render={() => <CollegeContainer props={this.props} unitId={this.props.location.unitId} />} />
           <Route exact path="/dashboard" render={() => <DashboardContainer user={this.state.user} />} />
@@ -83,9 +75,8 @@ class App extends Component {
           <Route exact path="/signup" component={CreateUserContainer} />
           <Route exact path="/login" render={() => <LoginContainer handleLogin={this.handleLogin} />} />
           <Route path="/" render={WelcomeContainer} />
-
         </Switch>
-      </div>
+      </>
     );
   }
 }

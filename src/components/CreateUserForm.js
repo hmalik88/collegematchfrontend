@@ -56,7 +56,6 @@ export default class CreateUserForm extends React.Component {
   render() {
     return(
       <div>
-        <h1>Create Your Account</h1>
         <form onSubmit={this.props.handleSubmit}>
         First Name: <input id="first_name" onChange={this.handleChange} type="text" value={this.state.firstName} /><br/>
         Last Name: <input id="last_name" onChange={this.handleChange} type="text" value={this.state.lastName} /><br/>

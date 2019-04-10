@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:200,200i,400,500,600i');
+
+body {
+  background-image: url('../images/collegematchbg.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100vh;
+}
+
+h1.welcome {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 94px;
+  font-weight: 200;
+  text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+}
+
+p.collegematch-intro {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 34px;
+  font-weight: 200;
+  font-style: italic;
+  span.maters {
+    font-weight: 600;
+  }
+
+}
+
