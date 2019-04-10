@@ -25,6 +25,12 @@ h1.welcome {
   grid-column: 4 / 5;
   grid-row: 1;
   align-self: center;
+  margin-left: 10%;
+  display: inline-block;
+}
+
+h1.welcome:hover {
+  cursor: default;
 }
 
 p.collegematch-intro {
@@ -35,13 +41,16 @@ p.collegematch-intro {
   grid-column: 4 / 5 ;
   grid-row: 2;
   align-self: left;
+  margin-left: 10%;
+  margin-top: -7px;
+  cursor: default;
   span.maters {
     font-weight: 500;
   }
 
 }
 
-div.welcome-button {
+a.welcome-button {
   display: grid;
   width: 478px;
   height: 96px;
@@ -57,12 +66,21 @@ div.welcome-button {
   grid-column: 4 / 5;
   grid-row: 3;
   align-self: left;
-  margin-left: 100px;
+  margin-top: -50px;
+  margin-left: calc(100px + 10%);
+  text-decoration: none;
 }
 
-a {
-  text-decoration: none;
-  color: #fff;
+a.welcome-button:hover {
+  background-color: darken(#486CB2, 5%);
+}
+
+#logo {
+  grid-column: 4/5;
+  grid-row: 1;
+  display: inline-block;
+  margin-left: 64%;
+  margin-top: 4.5%;
 }
 
 
