@@ -26,7 +26,9 @@ h1.welcome {
   grid-row: 1;
   align-self: center;
   margin-left: 10%;
+  margin-top: 20%;
   display: inline-block;
+
 }
 
 h1.welcome:hover {
@@ -42,12 +44,11 @@ p.collegematch-intro {
   grid-row: 2;
   align-self: left;
   margin-left: 10%;
-  margin-top: -7px;
+  margin-top: calc(-7px + 3.5%);
   cursor: default;
   span.maters {
     font-weight: 500;
   }
-
 }
 
 a.welcome-button {
@@ -66,7 +67,7 @@ a.welcome-button {
   grid-column: 4 / 5;
   grid-row: 3;
   align-self: left;
-  margin-top: -50px;
+  margin-top: calc(-50px + 1%);
   margin-left: calc(100px + 10%);
   text-decoration: none;
 }
@@ -80,7 +81,76 @@ a.welcome-button:hover {
   grid-row: 1;
   display: inline-block;
   margin-left: 64%;
-  margin-top: 4.5%;
+  margin-top: calc(4.5% + 7%);
+  z-index: -1;
 }
 
+//*************CARDS SECTION******************
+
+.card {
+  width: calc(178px - 10%);
+  height: calc(247px - 10%);
+  background-image: url('../images/cmcardfront.svg');
+  border-radius: 21px;
+  background-repeat: no-repeat;
+  background-size: 100%
+}
+
+#card-1 {
+  grid-column: 1 / 2;
+  grid-row: 1;
+  align-self: flex-end;
+  margin-left: calc(20px + 40px);
+}
+
+#card-2 {
+  grid-column: 2 / 3;
+  grid-row: 1;
+  align-self: flex-end;
+  margin-left: calc(30px + 40px);
+}
+
+#card-3 {
+  grid-column: 3 / 4;
+  grid-row: 1;
+  align-self: flex-end;
+  margin-left: 40px;
+}
+
+#card-4 {
+  grid-column: 1 / 2;
+  grid-row: 2;
+  align-self: flex-start;
+  margin-left: calc(20px + 40px);
+}
+
+#card-5 {
+  grid-column: 2 / 3;
+  grid-row: 2;
+  margin-left: calc(30px + 40px);
+}
+
+#card-6 {
+  grid-column: 3 / 4;
+  grid-row: 2;
+  margin-left: 40px;
+}
+
+#card-7 {
+  grid-column: 1 / 2;
+  grid-row: 3;
+  margin-left: calc(20px + 40px);
+}
+
+#card-8 {
+  grid-column: 2 / 3;
+  grid-row: 3;
+  margin-left: calc(30px + 40px);
+}
+
+#card-9 {
+  grid-column: 3 / 4;
+  grid-row: 3;
+  margin-left: 40px;
+}
 
