@@ -74,7 +74,7 @@ class App extends Component {
           <Route exact path="/search" component={CollegeSearchContainer} />
           <Route exact path="/signup" component={CreateUserContainer} />
           <Route exact path="/login" render={() => <LoginContainer handleLogin={this.handleLogin} />} />
-          <Route path="/" render={WelcomeContainer} />
+          <Route path="/" component={WelcomeContainer} />
         </Switch>
       </>
     );

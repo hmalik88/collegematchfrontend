@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,400,500,500i,600i');
 
+
+
 body {
   background-image: url('../images/collegematchbg.svg');
   background-size: cover;
@@ -90,10 +92,7 @@ a.welcome-button:hover {
 .card {
   width: calc(178px - 10%);
   height: calc(247px - 10%);
-  background-image: url('../images/cmcardfront.svg');
   border-radius: 21px;
-  background-repeat: no-repeat;
-  background-size: 100%
 }
 
 #card-1 {
@@ -108,6 +107,9 @@ a.welcome-button:hover {
   grid-row: 1;
   align-self: flex-end;
   margin-left: calc(30px + 40px);
+  background-image: url('../images/cmcardfront.svg');
+  background-repeat: no-repeat;
+  background-size: 100%
 }
 
 #card-3 {
@@ -128,6 +130,9 @@ a.welcome-button:hover {
   grid-column: 2 / 3;
   grid-row: 2;
   margin-left: calc(30px + 40px);
+  background-image: url('../images/cmcardfront.svg');
+  background-repeat: no-repeat;
+  background-size: 100%
 }
 
 #card-6 {
@@ -140,17 +145,70 @@ a.welcome-button:hover {
   grid-column: 1 / 2;
   grid-row: 3;
   margin-left: calc(20px + 40px);
+  background-image: url('../images/cmcardfront.svg');
+  background-repeat: no-repeat;
+  background-size: 100%
 }
 
 #card-8 {
   grid-column: 2 / 3;
   grid-row: 3;
   margin-left: calc(30px + 40px);
+  background-image: url('../images/cmcardfront.svg');
+  background-repeat: no-repeat;
+  background-size: 100%
 }
 
 #card-9 {
   grid-column: 3 / 4;
   grid-row: 3;
   margin-left: 40px;
+  background-image: url('../images/cmcardfront.svg');
+  background-repeat: no-repeat;
+  background-size: 100%
 }
+
+.flip-card1, .flip-card3, .flip-card4, .flip-card6 {
+  background-color: transparent;
+  perspective: 200px;
+}
+
+.flip-card1-inner, .flip-card3-inner, .flip-card4-inner, .flip-card6-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  background-image: url('../images/cmcardfront.svg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.flip {
+  transform: rotateY(180deg);
+}
+
+.flip-card1-front, .flip-card1-back, .flip-card3-front, .flip-card4-front, .flip-card6-front, .flip-card3-back, .flip-card4-back, .flip-card6-back {
+  position: absolute;
+  min-width: 100%;
+  min-height: 100%;
+  backface-visibility: hidden;
+  border-radius: 21px;
+  padding: 0;
+  margin: 0;
+}
+
+.flip-card1-back {
+  background-color: #B25848;
+  transform: rotateY(180deg);
+}
+
+.flip-card3-back, .flip-card4-back, .flip-card6-back {
+  transform: rotateY(180deg);
+  background-color: #486CB2;
+}
+
+
 
