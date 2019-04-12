@@ -168,7 +168,8 @@ a.welcome-button:hover {
 
 .flip-card1, .flip-card3, .flip-card4, .flip-card6 {
   background-color: transparent;
-  perspective: 1000px;
+  perspective: 200px;
+  border: 0;
 }
 
 .flip-card1-inner, .flip-card3-inner, .flip-card4-inner, .flip-card6-inner {
@@ -177,6 +178,7 @@ a.welcome-button:hover {
   height: 100%;
   transition: transform 0.8s;
   transform-style: preserve-3d;
+  border: 0;
 }
 
 .flip {
@@ -189,21 +191,25 @@ a.welcome-button:hover {
   height: 100%;
   backface-visibility: hidden;
   border-radius: 21px;
+  border: 0;
 }
 
 .flip-card1-back {
-  background-color: #B25848;
   transform: rotateY(180deg);
+  margin-left: -9px;
+  border: 0;
 }
 
 .flip-card3-back, .flip-card4-back, .flip-card6-back {
   transform: rotateY(180deg);
-  background-color: #486CB2;
+  margin-left: -8px;
 }
 
 .card-image {
-  max-width: 100%;
-  max-height: 100%;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  margin: 0;
 }
 
 
