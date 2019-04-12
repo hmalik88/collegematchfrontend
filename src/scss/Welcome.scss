@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,400,500,500i,600i');
 
-
-
 body {
   background-image: url('../images/collegematchbg.svg');
   background-size: cover;
@@ -170,7 +168,7 @@ a.welcome-button:hover {
 
 .flip-card1, .flip-card3, .flip-card4, .flip-card6 {
   background-color: transparent;
-  perspective: 200px;
+  perspective: 1000px;
 }
 
 .flip-card1-inner, .flip-card3-inner, .flip-card4-inner, .flip-card6-inner {
@@ -179,11 +177,6 @@ a.welcome-button:hover {
   height: 100%;
   transition: transform 0.8s;
   transform-style: preserve-3d;
-  background-image: url('../images/cmcardfront.svg');
-  background-repeat: no-repeat;
-  background-size: 100%;
-  padding: 0;
-  margin: 0;
 }
 
 .flip {
@@ -192,12 +185,10 @@ a.welcome-button:hover {
 
 .flip-card1-front, .flip-card1-back, .flip-card3-front, .flip-card4-front, .flip-card6-front, .flip-card3-back, .flip-card4-back, .flip-card6-back {
   position: absolute;
-  min-width: 100%;
-  min-height: 100%;
+  width: 100%;
+  height: 100%;
   backface-visibility: hidden;
   border-radius: 21px;
-  padding: 0;
-  margin: 0;
 }
 
 .flip-card1-back {
@@ -209,6 +200,13 @@ a.welcome-button:hover {
   transform: rotateY(180deg);
   background-color: #486CB2;
 }
+
+.card-image {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+
 
 
 

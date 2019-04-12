@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import '../scss/Welcome.scss'
 import logo from '../images/cm-logo-welcome.svg'
+import cardfront from '../images/cmcardfront.svg'
 
 export default class WelcomeContainer extends React.Component {
 
@@ -36,27 +37,35 @@ export default class WelcomeContainer extends React.Component {
     <>
       <div id="card-1" className="card flip-card1" alt="card">
         <div className="flip-card1-inner">
-          <div className="flip-card1-front"></div>
+          <div className="flip-card1-front">
+            <img className='card-image' src={cardfront} alt="card" />
+          </div>
           <div className="flip-card1-back"></div>
         </div>
       </div>
       <div id="card-2" className="card" alt="card"></div>
       <div id="card-3" className="card flip-card3" alt="card">
         <div className="flip-card3-inner">
-          <div className="flip-card3-front"></div>
+          <div className="flip-card3-front">
+            <img className='card-image' src={cardfront} alt="card" />
+          </div>
           <div className="flip-card3-back"></div>
         </div>
       </div>
       <div id="card-4" className="card flip-card4" alt="card">
         <div className="flip-card4-inner">
-          <div className="flip-card4-front"></div>
+          <div className="flip-card4-front">
+            <img className='card-image' src={cardfront} alt="card" />
+          </div>
           <div className="flip-card4-back"></div>
         </div>
       </div>
       <div id="card-5" className="card" alt="card"></div>
       <div id="card-6" className="card flip-card6" alt="card">
         <div className="flip-card6-inner">
-          <div className="flip-card6-front"></div>
+          <div className="flip-card6-front">
+            <img className='card-image' src={cardfront} alt="card" />
+          </div>
           <div className="flip-card6-back"></div>
         </div>
       </div>
