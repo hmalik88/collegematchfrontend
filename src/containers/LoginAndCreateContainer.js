@@ -1,7 +1,8 @@
 import React from 'react'
 import CreateUserForm from '../components/CreateUserForm'
+import '../scss/LoginAndCreate.scss'
 
-export default class CreateUserContainer extends React.Component {
+export default class LoginAndCreateContainer extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault()
@@ -32,10 +33,13 @@ export default class CreateUserContainer extends React.Component {
 
   render() {
     return(
-      <div>
-      <h1>Create Your Account</h1>
-      <CreateUserForm handleSubmit={this.handleSubmit} />
-      </div>
+      <>
+        <h1 className='create-title'>Create an account</h1>
+        <h1 className='login-title'>Log in</h1>
+        <CreateUserForm handleSubmit={this.handleSubmit} />
+        <hr className="page-divider" />
+      </>
+
       )
   }
 

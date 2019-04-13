@@ -54,7 +54,7 @@ export default class WelcomeContainer extends React.Component {
             <img className='card-image' src={cardfront} alt="" />
           </div>
           <div className="flip-card3-back">
-          <img className='card-image' src={bluecard} alt="" />
+            <img className='card-image' src={bluecard} alt="" />
           </div>
         </div>
       </div>
@@ -64,7 +64,7 @@ export default class WelcomeContainer extends React.Component {
             <img className='card-image' src={cardfront} alt="" />
           </div>
           <div className="flip-card4-back">
-          <img className='card-image' src={bluecard} alt="" />
+            <img className='card-image' src={bluecard} alt="" />
           </div>
         </div>
       </div>
@@ -75,7 +75,7 @@ export default class WelcomeContainer extends React.Component {
             <img className='card-image' src={cardfront} alt="" />
           </div>
           <div className="flip-card6-back">
-          <img className='card-image' src={bluecard} alt="" />
+            <img className='card-image' src={bluecard} alt="" />
           </div>
         </div>
       </div>
