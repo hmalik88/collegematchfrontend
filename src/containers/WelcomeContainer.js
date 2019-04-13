@@ -8,6 +8,12 @@ import bluecard from '../images/blue-card.svg'
 
 export default class WelcomeContainer extends React.Component {
 
+  constructor() {
+    super()
+    let root = document.querySelector('#root');
+    root.classList.toggle('welcome-root');
+  }
+
   componentDidMount() {
     let card1 = document.querySelector('.flip-card1-inner');
     let card3 = document.querySelector('.flip-card3-inner');
@@ -31,6 +37,14 @@ export default class WelcomeContainer extends React.Component {
     setTimeout(() => {
       card3.classList.toggle('flip')
     }, 4750)
+  }
+
+  componentWillUnmount() {
+    let root = document.querySelector('#root');
+    let list = [root.classList]
+    if (list.includes('welcome-root')) {
+      root.classList.toggle('welcome-root');
+    }
   }
 
 

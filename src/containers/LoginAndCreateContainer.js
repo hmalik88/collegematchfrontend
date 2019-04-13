@@ -4,6 +4,14 @@ import '../scss/LoginAndCreate.scss'
 
 export default class LoginAndCreateContainer extends React.Component {
 
+  constructor() {
+    super()
+    let root = document.querySelector('#root');
+    let list = [root.classList]
+    root.classList.remove('welcome-root');
+    root.classList.toggle('login-root');
+  }
+
   handleSubmit = e => {
     e.preventDefault()
     let user = {
@@ -31,7 +39,27 @@ export default class LoginAndCreateContainer extends React.Component {
     })
   }
 
+  componentDidMount() {
+    let root = document.querySelector('#root');
+    if ([root.classList].includes('welcome-root')) {
+      root.classList.toggle('welcome-root')
+    }
+  }
+
+  toggleRoot = (value) => {
+    let root = document.querySelector('#root');
+    let list = [root.classList];
+    if (value === true) {
+      root.classList.toggle('welcome-root')
+    }
+    if (!list.includes('login-root')) {
+      root.classList.toggle('login-root')
+    }
+  }
+
   render() {
+    let root = document.querySelector('#root');
+    let list = [root.classList];
     return(
       <>
         <h1 className='create-title'>Create an account</h1>
@@ -39,7 +67,6 @@ export default class LoginAndCreateContainer extends React.Component {
         <CreateUserForm handleSubmit={this.handleSubmit} />
         <hr className="page-divider" />
       </>
-
       )
   }
 
