@@ -67,7 +67,7 @@ export default class CreateUserForm extends React.Component {
         <label id="city" className="create-label">City:</label><input id="city" onChange={this.handleChange} type="text" value={this.state.city} className='create-input' /><br/><br/>
         <label id="state" className="create-label">State:</label><input id="state" onChange={this.handleChange} type="text" value={this.state.state} className='create-input' /><br/><br/>
         <label id="zip-code" className="create-label">Zip Code:</label><input id="zip_code" onChange={this.handleChange} type="text" value={this.state.zipCode} className='create-input' /><br/><br/>
-        <button type="submit">Create Account</button>
+        <button className='create-submit' type="submit">Create Account</button>
         </form>
       </>
       )

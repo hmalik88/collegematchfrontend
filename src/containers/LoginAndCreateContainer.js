@@ -1,13 +1,13 @@
 import React from 'react'
 import CreateUserForm from '../components/CreateUserForm'
 import '../scss/LoginAndCreate.scss'
+import LoginForm from '../components/LoginForm'
 
 export default class LoginAndCreateContainer extends React.Component {
 
   constructor() {
     super()
     let root = document.querySelector('#root');
-    let list = [root.classList]
     root.classList.remove('welcome-root');
     root.classList.toggle('login-root');
   }
@@ -46,26 +46,15 @@ export default class LoginAndCreateContainer extends React.Component {
     }
   }
 
-  toggleRoot = (value) => {
-    let root = document.querySelector('#root');
-    let list = [root.classList];
-    if (value === true) {
-      root.classList.toggle('welcome-root')
-    }
-    if (!list.includes('login-root')) {
-      root.classList.toggle('login-root')
-    }
-  }
 
   render() {
-    let root = document.querySelector('#root');
-    let list = [root.classList];
     return(
       <>
         <h1 className='create-title'>Create an account</h1>
         <h1 className='login-title'>Log in</h1>
         <CreateUserForm handleSubmit={this.handleSubmit} />
         <hr className="page-divider" />
+        <LoginForm handleLogin={this.props.handleLogin} />
       </>
       )
   }
