@@ -1,6 +1,7 @@
 import React from 'react'
 import collegedata from '../collegedata.json'
-export default class DashboardContainer extends React.Component {
+
+export default class HomeContainer extends React.Component {
 
   state = {colleges: []}
 
@@ -26,7 +27,7 @@ export default class DashboardContainer extends React.Component {
   render() {
     return(
       <div>
-        <h1>Dashboard</h1>
+        <h1>Home</h1>
       </div>
       )
   }

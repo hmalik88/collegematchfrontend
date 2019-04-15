@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Route, Switch, Redirect, withRouter} from 'react-router-dom';
 import LoginAndCreateContainer from './containers/LoginAndCreateContainer'
 import WelcomeContainer from './containers/WelcomeContainer'
-import DashboardContainer from './containers/DashboardContainer'
+import HomeContainer from './containers/HomeContainer'
 import CollegeSearchContainer from './containers/CollegeSearchContainer'
 import CollegeContainer from './containers/CollegeContainer'
 
@@ -40,7 +40,7 @@ class App extends Component {
       this.setState({user: res.user})
     })
     .then(() => {
-      this.props.history.push("/dashboard")
+      this.props.history.push("/home")
     })
 
   }
@@ -69,7 +69,7 @@ class App extends Component {
       <>
         <Switch>
           <Route exact path="/:linkName/info" render={() => <CollegeContainer props={this.props} unitId={this.props.location.unitId} />} />
-          <Route exact path="/dashboard" render={() => <DashboardContainer user={this.state.user} />} />
+          <Route exact path="/home" render={() => <HomeContainer user={this.state.user} />} />
           <Route exact path="/search" component={CollegeSearchContainer} />
           <Route exact path="/login" render={() => <LoginAndCreateContainer handleLogin={this.handleLogin} />} />
           <Route exact path="/" component={WelcomeContainer} />
