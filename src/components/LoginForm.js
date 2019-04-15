@@ -14,13 +14,13 @@ export default class LoginForm extends React.Component {
 
   render() {
     return(
-      <div>
-        <form onSubmit={this.props.handleLogin}>
-          E-mail: <input onChange={this.handleChange} type="text" value={this.state.email} /><br/>
-          Password: <input onChange={this.handleChange} type="password" value={this.state.password} /><br/>
+      <>
+        <form className='login-form' onSubmit={this.props.handleLogin}>
+          <label className='login-label'>E-mail</label><input id="first-login-input" onChange={this.handleChange} type="text" className='login-input' value={this.state.email} /><br/>
+          <label className='login-label'>Password</label><input id="password-login" onChange={this.handleChange} type="password" className='login-input' value={this.state.password} /><br/>
           <button className='login-submit' type="submit">Login</button>
         </form>
-      </div>
+      </>
       )
   }
 

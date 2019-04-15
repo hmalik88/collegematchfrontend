@@ -24,10 +24,10 @@ export default class CreateUserForm extends React.Component {
       case 'last_name':
         this.setState({lastName: value})
         break;
-      case 'e-mail':
+      case 'e-mail-create-input':
         this.setState({email: value})
         break;
-      case 'password':
+      case 'password-create-input':
         this.setState({password: value})
         break;
       case 'add1':
@@ -36,16 +36,16 @@ export default class CreateUserForm extends React.Component {
       case 'add2':
         this.setState({addressLine2: value})
         break;
-      case 'unit':
+      case 'unit-in':
         this.setState({unit: value})
         break;
-      case 'city':
+      case 'city-input':
         this.setState({city: value})
         break;
-      case 'state':
+      case 'state-input':
         this.setState({state: value})
         break;
-      case 'zip_code':
+      case 'zip_code-input':
         this.setState({zipCode: value})
         break;
       default:
@@ -57,16 +57,16 @@ export default class CreateUserForm extends React.Component {
     return(
       <>
         <form className='create-form' onSubmit={this.props.handleSubmit}>
-        <label id="first" className="create-label">Name:</label> <input id="first_name" onChange={this.handleChange} type="text" value={this.state.firstName} className='create-input' /><br/><br/>
-        <label id="second" className="create-label">Last Name:</label> <input id="last_name" onChange={this.handleChange} type="text" value={this.state.lastName} className='create-input' /><br/><br/>
-        <label id="e-mail" className="create-label">E-mail:</label> <input id="e-mail" onChange={this.handleChange} type="text" value={this.state.email} className='create-input' /><br/><br/>
-        <label id="password" className="create-label">Password:</label><input id="password" onChange={this.handleChange} type="password" value={this.state.password} className='create-input' /><br/><br/>
-        <label id="line-1" className="create-label">Address Line 1:</label><input id="add1" onChange={this.handleChange} type="text" value={this.state.addressLine1} className='create-input' /><br/><br/>
-        <label id="line-2" className="create-label">Address Line 2:</label><input id="add2" onChange={this.handleChange} type="text" value={this.state.addressLine2} className='create-input' /><br/><br/>
-        <label id="unit" className="create-label">Unit:</label><input id="unit" onChange={this.handleChange} type="text" value={this.state.unit} className='create-input' /><br/><br/>
-        <label id="city" className="create-label">City:</label><input id="city" onChange={this.handleChange} type="text" value={this.state.city} className='create-input' /><br/><br/>
-        <label id="state" className="create-label">State:</label><input id="state" onChange={this.handleChange} type="text" value={this.state.state} className='create-input' /><br/><br/>
-        <label id="zip-code" className="create-label">Zip Code:</label><input id="zip_code" onChange={this.handleChange} type="text" value={this.state.zipCode} className='create-input' /><br/><br/>
+        <label id="first" className="create-label">Name</label> <input id="first_name" onChange={this.handleChange} type="text" value={this.state.firstName} className='create-input' /><br/><br/>
+        <label id="second" className="create-label">Last Name</label> <input id="last_name" onChange={this.handleChange} type="text" value={this.state.lastName} className='create-input' /><br/><br/>
+        <label id="e-mail" className="create-label">E-mail</label> <input id="e-mail-create-input" onChange={this.handleChange} type="text" value={this.state.email} className='create-input' /><br/><br/>
+        <label id="password" className="create-label">Password</label><input id="password-create-input" onChange={this.handleChange} type="password" value={this.state.password} className='create-input' /><br/><br/>
+        <label id="line-1" className="create-label">Address Line 1</label><input id="add1" onChange={this.handleChange} type="text" value={this.state.addressLine1} className='create-input' /><br/><br/>
+        <label id="line-2" className="create-label">Address Line 2</label><input id="add2" onChange={this.handleChange} type="text" value={this.state.addressLine2} className='create-input' /><br/><br/>
+        <label id="unit" className="create-label">Unit</label><input id="unit-input" onChange={this.handleChange} type="text" value={this.state.unit} className='create-input' /><br/><br/>
+        <label id="city" className="create-label">City</label><input id="city-input" onChange={this.handleChange} type="text" value={this.state.city} className='create-input' /><br/><br/>
+        <label id="state" className="create-label">State</label><input id="state-input" onChange={this.handleChange} type="text" value={this.state.state} className='create-input' /><br/><br/>
+        <label id="zip-code" className="create-label">Zip Code</label><input id="zip_code-input" onChange={this.handleChange} type="text" value={this.state.zipCode} className='create-input' /><br/><br/>
         <button className='create-submit' type="submit">Create Account</button>
         </form>
       </>

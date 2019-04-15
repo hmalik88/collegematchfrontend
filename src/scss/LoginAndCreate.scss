@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500');
 
 body {
   background-image: url('../images/collegematchbg.svg');
@@ -11,7 +11,7 @@ body {
 
 .login-root {
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: auto auto;
   grid-template-rows: 11.5% 75.6% 12.9%;
   width: 100%;
   height: 100%;
@@ -20,16 +20,17 @@ body {
 
 .login-title, .create-title {
   font-family: 'Montserrat', sans-serif;
-  font-size: 65px;
+  font-size: 45px;
   font-weight: 400;
   color: #fff;
+  margin-top: 50px;
 }
 
 .login-title {
-  grid-column: 3 / 4;
+  grid-column: 2 / 3;
   grid-row: 1 / 2;
   justify-content: center;
-  margin-left: 300px;
+  margin-left: 325px;
   align-self: bottom;
 }
 
@@ -39,7 +40,7 @@ body {
   flex-direction: row;
   justify-content: center;
   align-self: bottom;
-  margin-left: 100px;
+  margin-left: 150px;
 }
 
 .page-divider {
@@ -50,64 +51,175 @@ body {
   opacity: .23;
   grid-column: 2 / 3;
   grid-row: 1 / 4;
-  // margin-right: 400px;
   position: absolute;
   align-self: center;
-  margin-top: 15px;
+  margin-right: 50%;
 }
 
-.create-form {
-  grid-column: 1 / 2;
-  grid-row: 2 / 3;
-  align-self: center;
-  justify-content: center;
-  margin-top: 100px;
-}
 
 input.create-input {
-  width: calc(519px - 30%);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  font-weight: 200;
+  width: calc(519px - 20%);
   height: 30px;
-  border-radius: 14px;
+  border-radius: 10px;
   border: 0px none;
-  margin-left: 100px;
   grid-column: 1 / 2;
   grid-row: 2 / 3;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-bottom: 10px;
+}
+
+#first_name {
+  margin-left: 15px;
+}
+
+#last_name {
+  margin-left: -37.5px;
+}
+
+#e-mail-create-input {
+  margin-left: 15px;
+}
+
+#password-create-input {
+  margin-left: -17.5px;
+}
+
+#add1 {
+  margin-left: -72.5px;
+}
+
+#add2 {
+  margin-left: -77.5px;
+}
+
+#unit-input {
+  margin-left: 45px;
+}
+
+#city-input {
+  margin-left: 52.5px;
+}
+
+#state-input {
+  margin-left: 37.5px;
+}
+
+#zip_code-input {
+  margin-left: -10px;
+}
+
+input.login-input {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  font-weight: 200;
+  width: calc(519px - 25%);
+  height: 30px;
+  border-radius: 10px;
+  border: 0px none;
+  grid-column: 3 / 4;
+  grid-row: 2 / 3;
+  align-self: center;
+  margin-left: 10px;
+  margin-bottom: 25px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+#first-login-input {
+  margin-left: 8%;
+}
+
+#password-login {
+  margin-left: 3%;
 }
 
 label.create-label {
   font-family: 'Montserrat', sans-serif;
-  font-size: 35px;
-  font-weight: 300;
+  font-size: 24px;
+  font-weight: 200;
   color: #fff;
-  margin-right: 10%;
+  margin-right: 13%;
   align-self: center;
   grid-column: 1 / 2;
   grid-row: 2 / 3;
+  margin-left: 85px;
 
 }
+
+label.login-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: 200;
+  color: #fff;
+  margin-right: 5%;
+  align-self: center;
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+  margin-left: 100px;
+}
+
+
 
 form.create-form {
   justify-content: center;
   align-self: center;
   grid-column: 1 / 2;
   grid-row: 2 / 3;
+  margin-top: 125px;
 }
+
+form.login-form {
+  justify-content: center;
+  align-self: center;
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+}
+
 
 button.create-submit {
   display: grid;
-  width: 430.38px;
+  width: 350px;
   height: 96px;
   border-radius: 17px;
   background-color: #486CB2;
   color: #fff;
   font-family: 'Montserrat', sans-serif;
-  font-size: 35px;
-  font-weight: 300;
+  font-size: 30px;
+  font-weight: 500;
   align-items: center;
   justify-content: center;
   text-decoration: none;
   border: 0px none;
   box-shadow: 3px 3px 3px rgba(0,0,0,.16);
   align-self: center;
-  margin-left: 25%;
+  margin-left: 22.5%;
+}
+
+button.login-submit {
+  display: grid;
+  width: 225px;
+  height: 96px;
+  border-radius: 17px;
+  background-color: #486CB2;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 35px;
+  font-weight: 500;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border: 0px none;
+  box-shadow: 3px 3px 3px rgba(0,0,0,.16);
+  align-self: center;
+  margin-left: 39%;
+  margin-top: 40px;
+}
+
+button:hover {
+  background-color: darken(#486CB2, 5%);
+  cursor: pointer;
 }
