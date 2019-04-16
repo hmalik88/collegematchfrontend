@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600');
 
 body {
   background-image: url('../images/collegematchbg.svg');
@@ -48,4 +48,34 @@ body {
   color: #fff;
   align-self: flex-end;
   margin-left: 70.8px;
+}
+
+#home-option {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 35px;
+  font-weight: 600;
+  color: #fff;
+  grid-column: 3;
+  grid-row: 1;
+  display: inline-block;
+}
+
+#search-option {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 35px;
+  font-weight: 600;
+  color: #fff;
+  grid-column: 3;
+  grid-row: 1;
+  display: inline-block;
+}
+
+#logout-option {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 35px;
+  font-weight: 600;
+  color: #fff;
+  grid-column: 3;
+  grid-row: 1;
+  display: inline-block;
 }

@@ -40,7 +40,11 @@ export default class HomeContainer extends React.Component {
   render() {
     return(
       <>
-        <div id="home-nav"></div>
+        <div id="home-nav">
+          <h2 id="home-option">Home</h2>
+          <h2 id="search-option">Search</h2>
+          <h2 id="logout-option">Log Out</h2>
+        </div>
         <h1 id="home-current-tracks">Current Tracks:</h1>
         <div id="carousel-container"></div>
         <img id="nav-logo" src={navlogo} alt="nav-logo" />
