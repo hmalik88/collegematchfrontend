@@ -1,9 +1,17 @@
 import React from 'react'
 import collegedata from '../collegedata.json'
+import '../scss/Home.scss'
 
 export default class HomeContainer extends React.Component {
 
-  state = {colleges: []}
+  constructor() {
+    super()
+    let root = document.querySelector('#root');
+    root.classList.remove('login-root');
+    root.classList.toggle('home-root');
+    this.state = {colleges: []}
+  }
+
 
   getUnitIDs = () => {
     let unitIDs = '';
@@ -22,13 +30,18 @@ export default class HomeContainer extends React.Component {
 
   componentDidMount() {
     this.fetchAllColleges();
+    let root = document.querySelector('#root');
+    if ([root.classList].includes('login-root')) {
+      root.classList.toggle('login-root')
+    }
   }
 
   render() {
     return(
-      <div>
+      <>
+        <div id="home-nav"></div>
         <h1>Home</h1>
-      </div>
+      </>
       )
   }
 }
