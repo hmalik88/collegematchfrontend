@@ -1,6 +1,7 @@
 import React from 'react'
 import collegedata from '../collegedata.json'
 import '../scss/Home.scss'
+import navlogo from '../images/cm-nav-logo.png'
 
 export default class HomeContainer extends React.Component {
 
@@ -40,7 +41,9 @@ export default class HomeContainer extends React.Component {
     return(
       <>
         <div id="home-nav"></div>
-        <h1>Home</h1>
+        <h1 id="home-current-tracks">Current Tracks:</h1>
+        <div id="carousel-container"></div>
+        <img id="nav-logo" src={navlogo} alt="nav-logo" />
       </>
       )
   }
