@@ -2,6 +2,7 @@ import React from 'react'
 import collegedata from '../collegedata.json'
 import '../scss/Home.scss'
 import navlogo from '../images/cm-nav-logo.png'
+import addButton from '../images/add-button.svg'
 
 export default class HomeContainer extends React.Component {
 
@@ -45,7 +46,13 @@ export default class HomeContainer extends React.Component {
           <h2 id="search-option">Search</h2>
           <h2 id="home-option">Home</h2>
         </div>
-        <h1 id="home-current-tracks">Current Tracks:</h1>
+        <div id="second-portion-home-left">
+          <h1 id="home-current-tracks">Current Tracks:</h1>
+        </div>
+        <div id="second-portion-home-right">
+          <h2 id="create-track-home">Create a track</h2>
+          <img id="add-button" src={addButton} alt="add-button" />
+        </div>
         <div id="carousel-container"></div>
         <img id="nav-logo" src={navlogo} alt="nav-logo" />
       </>
