@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:200,500,600');
 
 body {
   background-image: url('../images/collegematchbg.svg');
@@ -15,7 +15,6 @@ body {
   grid-template-rows: 15.6% 20.8% 19.8% 43.8%;
   width: 100%;
   height: 100%;
-  position: relative;
 }
 
 #home-nav {
@@ -31,8 +30,11 @@ body {
 #carousel-container {
   grid-column: 1 / 3;
   grid-row: 3 / 4;
-  background-color: #000;
-  opacity: 0.16;
+  background-color: rgba(0,0,0,.16);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 #nav-logo {
@@ -195,14 +197,6 @@ body {
   cursor: pointer;
 }
 
-#carousel-container {
-  grid-column: 1 / 3;
-  grid-row: 3 / 4;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-}
 
 #left-button-container {
   width: 10%;
@@ -214,6 +208,10 @@ body {
 
 #college-carousel {
   width: 80%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
 }
 
 #right-button-container {
@@ -226,14 +224,99 @@ body {
 
 #left-carousel-button {
   display: inline-block;
-  position: relative;
+  position: absolute;
   left: 50px;
   cursor: pointer;
+  z-index: 5;
+}
+
+.left-pressed-down {
+  transform: translateY(5px);
+}
+
+.right-pressed-down {
+  transform: translateY(5px);
 }
 
 #right-carousel-button {
   display: inline-block;
-  position: relative;
+  position: absolute;
   right: 50px;
+  cursor: pointer;
+  z-index: 5;
+}
+
+#college-1 {
+  border-radius: 50%;
+  width: 138px;
+  height: 138px;
+  border: 2px solid #000;
+  box-shadow: 5px 5px 3px rgba(0,0,0,.16);
+  align-self: center;
+  margin-right: 50px;
+}
+
+#create-track-modal {
+  height: 614px;
+  width: 761px;
+  background-color: #486CB2;
+  border-radius: 26px 26px 0px 0px;
+  position: absolute;
+  z-index: 20;
+  left: calc(50% - 380.5px);
+  top: calc(50% - 307px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border: 1px solid #000;
+}
+
+#header-create-track-modal {
+  width: 761px;
+  height: 79px;
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+#left-header {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  grid-column: 1 / 2;
+}
+
+#right-header {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  grid-column: 2 / 3;
+}
+
+#inner-create-track-modal {
+  height: 535px;
+  width: 761px;
+  background-color: #fff;
+  position: absolute;
+  bottom: 0%;
+}
+
+#create-modal-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 40px;
+  font-weight: 500;
+  color: #fff;
+  margin-left: 31px;
+  margin-top: 20px;
+  cursor: default;
+}
+
+#close-button-modal {
+  margin-right: 15px;
+  margin-bottom: 7px;
   cursor: pointer;
 }

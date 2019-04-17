@@ -5,6 +5,7 @@ import navlogo from '../images/cm-nav-logo.png'
 import addButton from '../images/add-button.svg'
 import leftButton from '../images/left_carousel_button.svg'
 import rightButton from '../images/right_carousel_button.svg'
+import closeModal from '../images/exit-button-create-modal.svg'
 
 export default class HomeContainer extends React.Component {
 
@@ -15,7 +16,6 @@ export default class HomeContainer extends React.Component {
     root.classList.toggle('home-root');
     this.state = {colleges: []}
   }
-
 
   getUnitIDs = () => {
     let unitIDs = '';
@@ -32,12 +32,28 @@ export default class HomeContainer extends React.Component {
     .then(json => this.setState({colleges: json.colleges}));
   }
 
+  handleClick = e => {
+    e.target.classList.toggle('left-pressed-down')
+  }
+
+  handleModalOpen = () => {
+    let modal = document.querySelector('#create-track-modal');
+    modal.style.display = 'flex';
+  }
+
+  handleModalClose = e => {
+    let modal = document.querySelector('#create-track-modal');
+    modal.style.display = 'none';
+  }
+
   componentDidMount() {
     this.fetchAllColleges();
     let root = document.querySelector('#root');
     if ([root.classList].includes('login-root')) {
       root.classList.toggle('login-root')
     }
+    let modal = document.querySelector('#create-track-modal');
+    modal.style.display = 'none';
   }
 
   render() {
@@ -53,15 +69,17 @@ export default class HomeContainer extends React.Component {
         </div>
         <div id="second-portion-home-right">
           <h2 id="create-track-home">Create a track</h2>
-          <img id="add-button" src={addButton} alt="add-button" />
+          <img onClick={this.handleModalOpen} id="add-button" src={addButton} alt="add-button" />
         </div>
         <div id="carousel-container">
           <div id="left-button-container">
-            <img id="left-carousel-button" src={leftButton} alt="left-button" />
+            <img onMouseDown={this.handleClick} onMouseUp={this.handleClick} id="left-carousel-button" src={leftButton} alt="left-button" />
           </div>
-          <div id="college-carousel"></div>
+          <div id="college-carousel">
+            <div id="college-1"></div>
+          </div>
           <div id="right-button-container">
-            <img id="right-carousel-button" src={rightButton} alt="right-button" />
+            <img onMouseDown={this.handleClick} onMouseUp={this.handleClick} id="right-carousel-button" src={rightButton} alt="right-button" />
           </div>
         </div>
         <div id="third-portion-home-left">
@@ -69,6 +87,18 @@ export default class HomeContainer extends React.Component {
         </div>
         <div id="third-portion-home-right">
           <button id="intellimatch-button">IntelliMatch</button>
+        </div>
+        <div id="create-track-modal">
+          <div id="header-create-track-modal">
+            <div id="left-header">
+              <h2 id="create-modal-title">New Track</h2>
+            </div>
+            <div id="right-header">
+              <img onClick={this.handleModalClose} id="close-button-modal" src={closeModal} alt="close-modal" />
+            </div>
+          </div>
+          <div id="inner-create-track-modal">
+          </div>
         </div>
         <img id="nav-logo" src={navlogo} alt="nav-logo" />
       </>
