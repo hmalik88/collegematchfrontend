@@ -3,6 +3,8 @@ import collegedata from '../collegedata.json'
 import '../scss/Home.scss'
 import navlogo from '../images/cm-nav-logo.png'
 import addButton from '../images/add-button.svg'
+import leftButton from '../images/left_carousel_button.svg'
+import rightButton from '../images/right_carousel_button.svg'
 
 export default class HomeContainer extends React.Component {
 
@@ -42,9 +44,9 @@ export default class HomeContainer extends React.Component {
     return(
       <>
         <div id="home-nav">
-          <h2 id="logout-option">Log Out</h2>
-          <h2 id="search-option">Search</h2>
-          <h2 id="home-option">Home</h2>
+          <h2 id="logout-option" className="nav-options">Log Out</h2>
+          <h2 id="search-option" className="nav-options">Search</h2>
+          <h2 id="home-option" className="nav-options">Home</h2>
         </div>
         <div id="second-portion-home-left">
           <h1 id="home-current-tracks">Current Tracks:</h1>
@@ -53,7 +55,21 @@ export default class HomeContainer extends React.Component {
           <h2 id="create-track-home">Create a track</h2>
           <img id="add-button" src={addButton} alt="add-button" />
         </div>
-        <div id="carousel-container"></div>
+        <div id="carousel-container">
+          <div id="left-button-container">
+            <img id="left-carousel-button" src={leftButton} alt="left-button" />
+          </div>
+          <div id="college-carousel"></div>
+          <div id="right-button-container">
+            <img id="right-carousel-button" src={rightButton} alt="right-button" />
+          </div>
+        </div>
+        <div id="third-portion-home-left">
+          <button id="analytics-button">Run Analytics</button>
+        </div>
+        <div id="third-portion-home-right">
+          <button id="intellimatch-button">IntelliMatch</button>
+        </div>
         <img id="nav-logo" src={navlogo} alt="nav-logo" />
       </>
       )

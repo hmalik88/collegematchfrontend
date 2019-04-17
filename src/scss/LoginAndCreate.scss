@@ -24,6 +24,7 @@ body {
   font-weight: 400;
   color: #fff;
   margin-top: 50px;
+  cursor: default;
 }
 
 .login-title {
@@ -32,6 +33,7 @@ body {
   justify-content: center;
   margin-left: 325px;
   align-self: bottom;
+
 }
 
 .create-title {
@@ -147,7 +149,6 @@ label.create-label {
   grid-column: 1 / 2;
   grid-row: 2 / 3;
   margin-left: 85px;
-
 }
 
 label.login-label {
@@ -219,7 +220,12 @@ button.login-submit {
   margin-top: 40px;
 }
 
-button:hover {
+button.create-submit:hover {
+  background-color: darken(#486CB2, 5%);
+  cursor: pointer;
+}
+
+button.login-submit:hover {
   background-color: darken(#486CB2, 5%);
   cursor: pointer;
 }
