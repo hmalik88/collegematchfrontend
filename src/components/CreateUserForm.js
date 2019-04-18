@@ -36,7 +36,7 @@ export default class CreateUserForm extends React.Component {
       case 'add2':
         this.setState({addressLine2: value})
         break;
-      case 'unit-in':
+      case 'unit-input':
         this.setState({unit: value})
         break;
       case 'city-input':

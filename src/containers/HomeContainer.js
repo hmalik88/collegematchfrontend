@@ -1,7 +1,7 @@
 import React from 'react'
 import collegedata from '../collegedata.json'
 import '../scss/Home.scss'
-import navlogo from '../images/cm-nav-logo.png'
+import NavBar from './NavBar'
 import addButton from '../images/add-button.svg'
 import leftButton from '../images/left_carousel_button.svg'
 import rightButton from '../images/right_carousel_button.svg'
@@ -59,11 +59,7 @@ export default class HomeContainer extends React.Component {
   render() {
     return(
       <>
-        <div id="home-nav">
-          <h2 id="logout-option" className="nav-options">Log Out</h2>
-          <h2 id="search-option" className="nav-options">Search</h2>
-          <h2 id="home-option" className="nav-options">Home</h2>
-        </div>
+        <NavBar />
         <div id="second-portion-home-left">
           <h1 id="home-current-tracks">Current Tracks:</h1>
         </div>
@@ -98,9 +94,13 @@ export default class HomeContainer extends React.Component {
             </div>
           </div>
           <div id="inner-create-track-modal">
+            <p id="home-modal-text">Create a quick template to work on later!</p>
+            <div id="modal-sec1"><label id="major-modal-label">Major</label><input type="text" id="major-input-modal" /></div>
+            <div id="modal-sec2"><label id="college-modal-label">College</label><input type="text" id="college-input-modal" /></div>
+            <button id="modal-create-track">Create track</button>
           </div>
         </div>
-        <img id="nav-logo" src={navlogo} alt="nav-logo" />
+
       </>
       )
   }

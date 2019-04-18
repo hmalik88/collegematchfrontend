@@ -1,5 +1,7 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
+import navlogo from '../images/cm-nav-logo.png'
+import '../scss/NavBar.scss'
 
 export default class NavBar extends React.Component {
 
@@ -10,12 +12,15 @@ export default class NavBar extends React.Component {
 
   render () {
     return(
-      <div id="navbar">
-        <ul>
-          <Link to="/dashboard"><li>Home</li></Link>
-          <Link to="/login" ><li onClick={this.logOut}>Log Out</li></Link>
-          <Link to="/search" ><li>Search</li></Link>
-        </ul>
+      <div id="nav-bar">
+        <div id="nav-portion1">
+          <img id="nav-logo" src={navlogo} alt="nav-logo" />
+        </div>
+        <div id="nav-portion2">
+          <h2 id="home-option" className="nav-options">Home</h2>
+          <h2 id="search-option" className="nav-options">Search</h2>
+          <h2 id="logout-option" className="nav-options">Log Out</h2>
+        </div>
       </div>
       )
   }

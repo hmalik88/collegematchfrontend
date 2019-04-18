@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:200,500,600');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600');
 
 body {
   background-image: url('../images/collegematchbg.svg');
@@ -17,16 +17,6 @@ body {
   height: 100%;
 }
 
-#home-nav {
-  display: flex;
-  flex-direction: row-reverse;
-  align-items: flex-end;
-  grid-column: 1 / 3;
-  grid-row: 1 / 2;
-  background-color: #486CB2;
-  box-shadow: 0px 6px 6px rgba(0,0,0,.16);
-}
-
 #carousel-container {
   grid-column: 1 / 3;
   grid-row: 3 / 4;
@@ -35,15 +25,6 @@ body {
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
-}
-
-#nav-logo {
-  grid-column: 1;
-  grid-row: 1;
-  margin-left: 70.8px;
-  justify-content: center;
-  align-self: center;
-  margin-bottom: 3%;
 }
 
 #home-current-tracks {
@@ -55,39 +36,6 @@ body {
   align-self: flex-end;
   margin-left: 70.8px;
   cursor: default;
-}
-
-#home-option {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 35px;
-  font-weight: 600;
-  color: #fff;
-  justify-content: center;
-  display: inline-block;
-  margin-right: 37px;
-  align-self: center;
-}
-
-#search-option {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 35px;
-  font-weight: 600;
-  color: #fff;
-  justify-content: center;
-  display: inline-block;
-  margin-right: 36px;
-  align-self: center;
-}
-
-#logout-option {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 35px;
-  font-weight: 600;
-  color: #fff;
-  display: inline-block;
-  justify-content: center;
-  margin-right: 55px;
-  align-self: center;
 }
 
 #create-track-home {
@@ -125,11 +73,6 @@ body {
   justify-content: flex-end;
   grid-column: 2 / 3;
   grid-row: 2 / 3;
-}
-
-.nav-options:hover {
-  opacity: .57;
-  cursor: pointer;
 }
 
 #third-portion-home-left {
@@ -197,7 +140,6 @@ body {
   cursor: pointer;
 }
 
-
 #left-button-container {
   width: 10%;
   display: flex;
@@ -254,6 +196,7 @@ body {
   box-shadow: 5px 5px 3px rgba(0,0,0,.16);
   align-self: center;
   margin-right: 50px;
+  cursor: pointer;
 }
 
 #create-track-modal {
@@ -303,6 +246,10 @@ body {
   background-color: #fff;
   position: absolute;
   bottom: 0%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 #create-modal-title {
@@ -320,3 +267,69 @@ body {
   margin-bottom: 7px;
   cursor: pointer;
 }
+
+#home-modal-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 30px;
+  font-weight: 300;
+  color: #000;
+  margin-top: 56px;
+}
+
+#major-modal-label, #college-modal-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 50px;
+  font-weight: 500;
+  justify-self: center;
+}
+
+#modal-sec1 {
+  margin-top: 20px;
+}
+
+#modal-sec2 {
+  margin-top: 37px;
+}
+
+#major-input-modal, #college-input-modal {
+  justify-self: center;
+  width: 409px;
+  height: 49px;
+  border-radius: 14px;
+  border: 1px solid #000;
+  padding-left: 20px;
+  padding-left: 20px;
+  font-size: 25px;
+  font-weight: 400;
+  font-family: 'Montserrat', sans-serif;
+}
+
+#college-input-modal {
+  margin-left: 30px;
+}
+
+#major-input-modal {
+  margin-left: 77px;
+}
+
+#modal-create-track {
+  width: 430.38px;
+  height: 96px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 35px;
+  font-weight: 500;
+  color: #fff;
+  background-color: #486CB2;
+  border-radius: 17px;
+  margin-top: 73px;
+  cursor: pointer;
+  border: 0px none;
+}
+
+#modal-create-track:hover {
+  background-color: darken(#486CB2, 5%);
+}
+
+
+
+
