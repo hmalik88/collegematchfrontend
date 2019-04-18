@@ -5,6 +5,7 @@ import WelcomeContainer from './containers/WelcomeContainer'
 import HomeContainer from './containers/HomeContainer'
 import CollegeSearchContainer from './containers/CollegeSearchContainer'
 import CollegeContainer from './containers/CollegeContainer'
+import './scss/App.scss'
 
 class App extends Component {
   constructor() {
@@ -44,7 +45,6 @@ class App extends Component {
     })
 
   }
-
 
   componentDidMount() {
     let token = localStorage.getItem("token")

@@ -12,7 +12,7 @@ export default class HomeContainer extends React.Component {
   constructor() {
     super()
     let root = document.querySelector('#root');
-    root.classList.remove('login-root');
+    root.className = '';
     root.classList.toggle('home-root');
     this.state = {colleges: []}
   }

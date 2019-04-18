@@ -1,14 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,400,500,500i,600i');
 
-body {
-  background-image: url('../images/collegematchbg.svg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  width: 100vw;
-  height: 100vh;
-  margin: 0;
-}
-
 .welcome-root {
   display: grid;
   grid-template-columns: 10% 12% 12% auto;
