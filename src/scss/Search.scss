@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600');
 
+* {
+  box-sizing: border-box;
+}
+
 .search-root {
   display: grid;
   grid-template-columns: 50% 50%;
@@ -36,6 +40,7 @@
   font-family: 'Montserrat', sans-serif;
   font-size: 25px;
   font-weight: 200;
+  padding-right: 75px;
 }
 
 #second-section {
@@ -48,9 +53,79 @@
 }
 
 .search-divider {
-  height: 2px;
+  height: 1px;
   width: 91.5%;
   background-color: #fff;
   border: 0 none;
 }
 
+#search-icon {
+  position: relative;
+  right: 70px;
+  top: 15px;
+  width: 45px;
+  height: 45px;
+}
+
+#third-section {
+  grid-column: 1 / 3;
+  grid-row: 4 / 5;
+}
+
+#search-result-field {
+  width: 88%;
+  height: calc(100% - 46.5px);
+  position: relative;
+  left: 8.25%;
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 46.5px;
+  overflow-y: scroll;
+}
+
+.search-card {
+  height: 292px;
+  width: 363px;
+  border-radius: 22px;
+  background-color: #486CB2;
+  box-shadow: 3px 3px 6px rgba(0,0,0,.16) ;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pic-portion-card {
+  height: 181px;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 22px 22px 0px 0px;
+  border: 1px solid #000;
+  border-bottom: 0px;
+}
+
+.text-portion-card {
+  height: 111px;
+  width: 100%;
+  border-radius: 0px 0px 22px 22px;
+  border: 1px solid #000;
+  border-top: 0px;
+}
+
+.search-card-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: #fff;
+  margin-left: 20px;
+  letter-spacing: 1px;
+}
+
+.search-card-city {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: #fff;
+  margin-left: 20px;
+  letter-spacing: 1.5px;
+  margin-top: 20px;
+}
