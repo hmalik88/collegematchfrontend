@@ -1,8 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600');
 
-* {
-  box-sizing: border-box;
-}
+
 
 .search-root {
   display: grid;
@@ -27,7 +25,7 @@
   font-weight: 200;
   color: #fff;
   margin-left: 71px;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
 }
 
 #search-input {
@@ -92,6 +90,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  cursor: pointer;
+  border: 1px solid #000;
 }
 
 .pic-portion-card {
@@ -99,7 +99,7 @@
   width: 100%;
   background-color: #fff;
   border-radius: 22px 22px 0px 0px;
-  border: 1px solid #000;
+  // border: 1px solid #000;
   border-bottom: 0px;
 }
 
@@ -107,7 +107,7 @@
   height: 111px;
   width: 100%;
   border-radius: 0px 0px 22px 22px;
-  border: 1px solid #000;
+  // border: 1px solid #000;
   border-top: 0px;
 }
 
@@ -128,4 +128,8 @@
   margin-left: 20px;
   letter-spacing: 1.5px;
   margin-top: 20px;
+}
+
+.search-card-pressed-down {
+  transform: translateY(5px);
 }
