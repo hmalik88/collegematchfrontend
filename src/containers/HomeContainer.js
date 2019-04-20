@@ -5,7 +5,7 @@ import NavBar from './NavBar'
 import addButton from '../images/add-button.svg'
 import leftButton from '../images/left_carousel_button.svg'
 import rightButton from '../images/right_carousel_button.svg'
-import closeModal from '../images/exit-button-create-modal.svg'
+import CreateModal from '../components/CreateModal'
 
 export default class HomeContainer extends React.Component {
 
@@ -37,13 +37,8 @@ export default class HomeContainer extends React.Component {
   }
 
   handleModalOpen = () => {
-    let modal = document.querySelector('#create-track-modal');
+    let modal = document.querySelector('.create-track-modal');
     modal.style.display = 'flex';
-  }
-
-  handleModalClose = e => {
-    let modal = document.querySelector('#create-track-modal');
-    modal.style.display = 'none';
   }
 
   componentDidMount() {
@@ -52,7 +47,7 @@ export default class HomeContainer extends React.Component {
     if ([root.classList].includes('login-root')) {
       root.classList.toggle('login-root')
     }
-    let modal = document.querySelector('#create-track-modal');
+    let modal = document.querySelector('.create-track-modal');
     modal.style.display = 'none';
   }
 
@@ -84,23 +79,7 @@ export default class HomeContainer extends React.Component {
         <div id="third-portion-home-right">
           <button id="intellimatch-button">IntelliMatch</button>
         </div>
-        <div id="create-track-modal">
-          <div id="header-create-track-modal">
-            <div id="left-header">
-              <h2 id="create-modal-title">New Track</h2>
-            </div>
-            <div id="right-header">
-              <img onClick={this.handleModalClose} id="close-button-modal" src={closeModal} alt="close-modal" />
-            </div>
-          </div>
-          <div id="inner-create-track-modal">
-            <p id="home-modal-text">Create a quick template to work on later!</p>
-            <div id="modal-sec1"><label id="major-modal-label">Major</label><input type="text" id="major-input-modal" /></div>
-            <div id="modal-sec2"><label id="college-modal-label">College</label><input type="text" id="college-input-modal" /></div>
-            <button id="modal-create-track">Create track</button>
-          </div>
-        </div>
-
+        <CreateModal />
       </>
       )
   }

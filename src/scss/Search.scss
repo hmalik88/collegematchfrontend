@@ -1,6 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600');
-
-
+@import url('https://fonts.googleapis.com/css?family=Montserrat:200,400,600');
 
 .search-root {
   display: grid;
@@ -91,7 +89,6 @@
   flex-direction: column;
   align-items: center;
   cursor: pointer;
-  border: 1px solid #000;
 }
 
 .pic-portion-card {
@@ -99,16 +96,12 @@
   width: 100%;
   background-color: #fff;
   border-radius: 22px 22px 0px 0px;
-  // border: 1px solid #000;
-  border-bottom: 0px;
 }
 
 .text-portion-card {
   height: 111px;
   width: 100%;
   border-radius: 0px 0px 22px 22px;
-  // border: 1px solid #000;
-  border-top: 0px;
 }
 
 .search-card-title {
