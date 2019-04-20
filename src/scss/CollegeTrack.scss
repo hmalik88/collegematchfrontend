@@ -72,7 +72,7 @@
   justify-content: flex-start;
 }
 
-#test-tab1, #test-tab2 {
+.track-tab {
   width: 275.82px;
   height: 100%;
   border-radius: 47px 47px 0px 0px;
@@ -81,11 +81,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  opacity: 0.75;
+  cursor: pointer;
 }
 
-#test-tab2 {
-  opacity: 0.75;
-}
 
 #track-folder-left {
   display: flex;
@@ -114,5 +113,7 @@
   font-weight: 600;
   position: relative;
   bottom: 8px;
-  cursor: default;
+  pointer-events: none;
 }
+
+

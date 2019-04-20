@@ -18,9 +18,20 @@ export default class CollegeTrackContainer extends React.Component {
     modal.style.display = 'flex';
   }
 
+  handleTabClick = e => {
+    let tabContainer = document.querySelector('#track-tab-container');
+    let children = [...tabContainer.children];
+    children.forEach(child => {
+      child.style.opacity = 0.75
+    })
+    e.target.style.opacity = 1.0;
+  }
+
   componentDidMount() {
     let modal = document.querySelector('.create-track-modal');
     modal.style.display = 'none';
+    let tabContainer = document.querySelector('#track-tab-container');
+    tabContainer.children[0].style.opacity = 1.0;
   }
 
   render() {
@@ -36,10 +47,10 @@ export default class CollegeTrackContainer extends React.Component {
           <img onClick={this.handleModalOpen} id="add-button-tracks" src={addButton} alt="add-button" />
         </div>
         <div id="track-tab-container">
-          <div id="test-tab1">
+          <div className="track-tab" onClick={this.handleTabClick}>
             <h1 id="tab-label1">Finance</h1>
           </div>
-          <div id="test-tab2">
+          <div className='track-tab' onClick={this.handleTabClick}>
             <h1 id="tab-label2">Computer Science</h1>
           </div>
         </div>
