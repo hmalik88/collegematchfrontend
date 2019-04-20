@@ -2,6 +2,7 @@ import React from 'react'
 import '../scss/CollegeTrack.scss'
 import NavBar from './NavBar'
 import addButton from '../images/add-button.svg'
+import CreateModal from '../components/CreateModal'
 
 export default class CollegeTrackContainer extends React.Component {
 
@@ -10,6 +11,16 @@ export default class CollegeTrackContainer extends React.Component {
     let root = document.querySelector('#root');
     root.className = '';
     root.classList.toggle('track-root');
+  }
+
+  handleModalOpen = () => {
+    let modal = document.querySelector('.create-track-modal');
+    modal.style.display = 'flex';
+  }
+
+  componentDidMount() {
+    let modal = document.querySelector('.create-track-modal');
+    modal.style.display = 'none';
   }
 
   render() {
@@ -34,6 +45,7 @@ export default class CollegeTrackContainer extends React.Component {
         </div>
         <div id="track-folder">
         </div>
+        <CreateModal />
       </>
       )
   }
