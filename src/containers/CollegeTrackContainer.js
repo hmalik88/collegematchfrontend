@@ -43,7 +43,9 @@ export default class CollegeTrackContainer extends React.Component {
             <h1 id="tab-label2">Computer Science</h1>
           </div>
         </div>
-        <div id="track-folder">
+        <div id="track-folder-left">
+        </div>
+        <div id="track-folder-right">
         </div>
         <CreateModal />
       </>
