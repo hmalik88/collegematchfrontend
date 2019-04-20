@@ -4,7 +4,8 @@ import LoginAndCreateContainer from './containers/LoginAndCreateContainer'
 import WelcomeContainer from './containers/WelcomeContainer'
 import HomeContainer from './containers/HomeContainer'
 import CollegeSearchContainer from './containers/CollegeSearchContainer'
-import CollegeContainer from './containers/CollegeContainer'
+import CollegeInfoContainer from './containers/CollegeInfoContainer'
+import CollegeTrackContainer from './containers/CollegeTrackContainer.js'
 import './scss/App.scss'
 
 class App extends Component {
@@ -68,7 +69,8 @@ class App extends Component {
     return (
       <>
         <Switch>
-          <Route exact path="/:linkName/info" render={() => <CollegeContainer props={this.props} unitId={this.props.location.unitId} />} />
+          <Route exact path="/:college/tracks" render={ () => <CollegeTrackContainer />} />
+          <Route exact path="/:linkName/info" render={() => <CollegeInfoContainer props={this.props} unitId={this.props.location.unitId} />} />
           <Route exact path="/home" render={() => <HomeContainer user={this.state.user} />} />
           <Route exact path="/search" component={CollegeSearchContainer} />
           <Route exact path="/login" render={() => <LoginAndCreateContainer handleLogin={this.handleLogin} />} />
