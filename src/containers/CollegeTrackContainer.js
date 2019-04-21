@@ -3,6 +3,7 @@ import '../scss/CollegeTrack.scss'
 import NavBar from './NavBar'
 import addButton from '../images/add-button.svg'
 import CreateModal from '../components/CreateModal'
+import taskClose from '../images/task-delete.svg'
 
 export default class CollegeTrackContainer extends React.Component {
 
@@ -112,6 +113,39 @@ export default class CollegeTrackContainer extends React.Component {
             </div>
           </div>
           <div id="track-folder-right">
+            <div id="right-folder-first">
+              <h1 id="task-list-title">TASK LIST</h1>
+            </div>
+            <div id="right-folder-second">
+              <hr className="task-divider" />
+            </div>
+            <div id="right-folder-third">
+              <div id="tasks-container">
+                <div className="task">
+                  <p className="task-text">Set up networking meeting w/ Kevin</p>
+                  <img className="task-close" src={taskClose} alt="x" />
+                </div>
+                <div className="task">
+                  <p className="task-text">Read Hedge Fund Wizards</p>
+                  <img className="task-close" src={taskClose} alt="x" />
+                </div>
+                <div className="task">
+                  <p className="task-text">Finish IB Bootcamp</p>
+                  <img className="task-close" src={taskClose} alt="x" />
+                </div>
+                <div className="task">
+                  <p className="task-text">Work on financial modeling skills</p>
+                  <img className="task-close" src={taskClose} alt="x" />
+                </div>
+                <div className="task">
+                  <p className="task-text">Watch youtube videos on stock market</p>
+                  <img className="task-close" src={taskClose} alt="x" />
+                </div>
+              </div>
+            </div>
+            <div id="right-folder-fourth">
+              <input id="task-input" type="text" placeholder="Enter Task..." />
+            </div>
           </div>
         </div>
         <CreateModal />

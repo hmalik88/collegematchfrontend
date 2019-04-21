@@ -105,9 +105,11 @@
 }
 
 #track-folder-right {
-  display: flex;
+  display: grid;
   width: 50%;
   height: 100%;
+  grid-template-columns: 100%;
+  grid-template-rows: 14.8% 1.9% 70.9% 12.4%;
   background-color: #E7CF96;
   border: 1px solid #000;
   z-index: 5;
@@ -181,5 +183,92 @@
   display: inline-block;
   margin-left: 8px;
   letter-spacing: 0.5px;
+  cursor: default;
 }
+
+#right-folder-first {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#task-list-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 35px;
+  font-weight: 200;
+  position: relative;
+  cursor: default;
+  top: 10px;
+}
+
+#right-folder-second {
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+#right-folder-third {
+  grid-column: 1 / 2;
+  grid-row: 3 / 4;
+  display: flex;
+  justify-content: center;
+}
+
+#right-folder-fourth {
+  grid-column: 1 / 2;
+  grid-row: 4 / 5;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.task-divider {
+  height: 1px;
+  width: 86.9%;
+  background-color: #000;
+  border: 0px none;
+}
+
+#task-input {
+  width: 80%;
+  height: 62.5%;
+  border-radius: 15px;
+  border: 1px solid #707070;
+  padding-left: 27px;
+  padding-right: 27px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 25px;
+  font-weight: 400;
+  color: #000;
+  position: relative;
+  top: 5px;
+}
+
+#tasks-container {
+  display: flex;
+  align-items: center;
+  flex-flow: column;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.task-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  display: inline-block;
+  cursor: default;
+}
+
+.task-close {
+  margin-left: 25px;
+  position: relative;
+  top: 3px;
+  cursor: pointer;
+}
+
 
