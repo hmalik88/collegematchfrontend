@@ -53,7 +53,8 @@
   color: #fff;
   position: relative;
   top: 80px;
-  line-height: 45px;
+  line-height: 47px;
+  cursor: default;
 }
 
 #im-logo {
@@ -61,7 +62,7 @@
   width: 80%;
   height: 80%;
   right: 183px;
-  top: 8px;
+  top: 0px;
 }
 
 #im-enter {
@@ -80,7 +81,7 @@
   cursor: pointer;
   position: relative;
   right: 282px;
-  top: 50px;
+  top: 10px;
 }
 
 #im-enter:hover {

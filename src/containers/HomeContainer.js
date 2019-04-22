@@ -6,6 +6,7 @@ import addButton from '../images/add-button.svg'
 import leftButton from '../images/left_carousel_button.svg'
 import rightButton from '../images/right_carousel_button.svg'
 import CreateModal from '../components/CreateModal'
+import { Link } from 'react-router-dom'
 
 export default class HomeContainer extends React.Component {
 
@@ -77,7 +78,7 @@ export default class HomeContainer extends React.Component {
           <button id="analytics-button">Run Analytics</button>
         </div>
         <div id="third-portion-home-right">
-          <button id="intellimatch-button">IntelliMatch</button>
+          <Link to="/intellimatch" className="im-link"><button id="intellimatch-button">IntelliMatch</button></Link>
         </div>
         <CreateModal />
       </>
