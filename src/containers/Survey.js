@@ -1,11 +1,12 @@
 import React from 'react';
-import NavBar from './NavBar'
-import '../scss/Survey.scss'
+import NavBar from './NavBar';
+import { connect } from 'react-redux';
+import '../scss/Survey.scss';
 
-export default class Survey extends React.Component {
+class Survey extends React.Component {
 
-  constructor() {
-    super()
+  constructor(props) {
+    super(props);
     let root = document.querySelector('#root');
     root.className = '';
     root.classList.toggle('survey-root');
@@ -16,8 +17,23 @@ export default class Survey extends React.Component {
       <>
         <NavBar />
         <div>
+
         </div>
       </>
       )
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    questions: state
+  };
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    chooseAnswer: (action) => dispatch(action)
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Survey);
