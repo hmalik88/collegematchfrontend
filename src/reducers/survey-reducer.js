@@ -15,7 +15,8 @@ export default function surveyReducer (state = {
     Q14: '',
     Q15: '',
     Q16: '',
-    Q17: ''
+    Q17: '',
+    Q18: ''
   }, action) {
   switch (action.question) {
     case 'Q1':
@@ -52,6 +53,8 @@ export default function surveyReducer (state = {
       return {...state, Q16: action.answer};
     case 'Q17':
       return {...state, Q17: action.answer};
+    case 'Q18':
+      return {...state, Q18: action.answer};
     default:
       return state;
   }

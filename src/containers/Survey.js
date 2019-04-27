@@ -5,8 +5,8 @@ import '../scss/Survey.scss';
 
 class Survey extends React.Component {
 
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     let root = document.querySelector('#root');
     root.className = '';
     root.classList.toggle('survey-root');
@@ -16,8 +16,8 @@ class Survey extends React.Component {
     return(
       <>
         <NavBar />
-        <div>
-
+        <div id="first-portion-survey">
+          <h1 id="survey-title">IntelliMatch</h1>
         </div>
       </>
       )
