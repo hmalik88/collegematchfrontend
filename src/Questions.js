@@ -1,4 +1,4 @@
-{
+const Questions = {
   "Q1": {
     "type": "major",
     "question": "What major will you be applying for in college?"

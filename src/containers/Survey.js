@@ -1,7 +1,9 @@
 import React from 'react';
 import NavBar from './NavBar';
 import { connect } from 'react-redux';
+import SurveyModal from '../components/SurveyModal'
 import '../scss/Survey.scss';
+import '../Questions.json'
 
 class Survey extends React.Component {
 
@@ -12,7 +14,16 @@ class Survey extends React.Component {
     root.classList.toggle('survey-root');
   }
 
+  determineHeading = () => {
+
+  }
+
+  determineBody = () => {
+
+  }
+
   render() {
+
     return(
       <>
         <NavBar />

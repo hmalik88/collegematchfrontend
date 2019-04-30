@@ -74,7 +74,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/:college/tracks" render={ () => <CollegeTrackContainer />} />
           <Route exact path="/:linkName/info" render={() => <CollegeInfoContainer props={this.props} unitId={this.props.location.unitId} />} />
-          <Route exact path="/intellimatch/:number" render={() => <Survey />} />
+          <Route exact path="/intellimatch/:number" render={() => <Survey {...this.props} />} />
           <Route exact path="/intellimatch" render={() => <IntelliMatch />} />
           <Route exact path="/home" render={() => <HomeContainer user={this.state.user} />} />
           <Route exact path="/search" component={CollegeSearchContainer} />
