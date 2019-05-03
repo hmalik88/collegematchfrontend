@@ -1,4 +1,5 @@
 import React from 'react'
+import '../scss/SurveyModal.scss'
 
 export default class SurveyModal extends React.Component {
 
@@ -6,7 +7,6 @@ export default class SurveyModal extends React.Component {
 
   render() {
     return(
-      <>
         <div className="survey-modal">
           <div className="survey-modal-header">
 
@@ -15,7 +15,6 @@ export default class SurveyModal extends React.Component {
 
           </div>
         </div>
-      </>
       )
   }
 

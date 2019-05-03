@@ -34,7 +34,7 @@ export default class HomeContainer extends React.Component {
   }
 
   handleClick = e => {
-    e.target.classList.toggle('left-pressed-down')
+    e.target.classList.toggle('pressed-down')
   }
 
   handleModalOpen = () => {
