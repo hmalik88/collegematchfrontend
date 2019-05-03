@@ -14,21 +14,16 @@ class Survey extends React.Component {
     root.classList.toggle('survey-root');
   }
 
-  determineHeading = () => {
+  determineQuestionNumber = () => {
     let questionNumber = this.props.location.pathname.split('/')[2];
     return questionNumber;
   }
 
   determineBody = () => {
     let questionNumber = 'Q'
-    + this.determineHeading();
+    + this.determineQuestionNumber();
     let question = Questions[questionNumber];
-    debugger
     return question;
-  }
-
-  componentDidMount() {
-    this.determineBody();
   }
 
   render() {
