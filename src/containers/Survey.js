@@ -15,7 +15,7 @@ class Survey extends React.Component {
   }
 
   determineQuestionNumber = () => {
-    let questionNumber = this.props.location.pathname.split('/')[2];
+    let questionNumber = this.props.match.params.number
     return questionNumber;
   }
 
