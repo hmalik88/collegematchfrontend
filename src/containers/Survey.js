@@ -3,7 +3,7 @@ import NavBar from './NavBar';
 import { connect } from 'react-redux';
 import SurveyModal from '../components/SurveyModal'
 import '../scss/Survey.scss';
-import '../Questions.json'
+import Questions from '../Questions'
 
 class Survey extends React.Component {
 
@@ -15,11 +15,20 @@ class Survey extends React.Component {
   }
 
   determineHeading = () => {
-
+    let questionNumber = this.props.location.pathname.split('/')[2];
+    return questionNumber;
   }
 
   determineBody = () => {
+    let questionNumber = 'Q'
+    + this.determineHeading();
+    let question = Questions[questionNumber];
+    debugger
+    return question;
+  }
 
+  componentDidMount() {
+    this.determineBody();
   }
 
   render() {
