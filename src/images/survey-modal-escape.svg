@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="71.576" height="71.576" viewBox="0 0 71.576 71.576">
+  <defs>
+    <filter id="close-circle-outline" x="0" y="0" width="71.576" height="71.576" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#close-circle-outline)">
+    <path id="close-circle-outline-2" data-name="close-circle-outline" d="M28.788,50.219a21.43,21.43,0,1,1,21.43-21.43,21.459,21.459,0,0,1-21.43,21.43M28.788,2A26.8,26.8,0,0,0,9.231,47.109,26.8,26.8,0,0,0,55.576,28.788,26.764,26.764,0,0,0,28.788,2m6.938,16.073-6.938,6.938L21.85,18.073,18.073,21.85l6.938,6.938-6.938,6.938L21.85,39.5l6.938-6.938L35.726,39.5,39.5,35.726l-6.938-6.938L39.5,21.85Z" transform="translate(7 4)" fill="#fff"/>
+  </g>
+</svg>

@@ -49,7 +49,7 @@ class Survey extends React.Component {
         </div>
         <div id="survey-modal-portion">
           <img src={leftSurvey} onMouseDown={this.handleClick} onMouseUp={this.handleClick} className="left-survey-button" alt="left-button" />
-          <SurveyModal />
+          <SurveyModal questionNumber={this.determineQuestionNumber()} questionBody={this.determineBody()} />
           <img src={rightSurvey} onMouseDown={this.handleClick} onMouseUp={this.handleClick}  className="right-survey-button" alt="right-button" />
         </div>
       </>

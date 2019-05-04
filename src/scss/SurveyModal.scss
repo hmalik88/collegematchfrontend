@@ -10,10 +10,55 @@
   height: 19.9%;
   background-color: #486CB2;
   border-radius: 35px 35px 0px 0px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .survey-modal-body {
   height: 80.1%;
   background-color: #fff;
   border-radius: 0px 0px 35px 35px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.survey-header-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 30px;
+  font-weight: 600;
+  color: #fff;
+  position: relative;
+  left: 41px;
+}
+
+.survey-body-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 35px;
+  font-weight: 400;
+  color: #000;
+  position: relative;
+  top: 60px;
+  width: 80%;
+  letter-spacing: 1px;
+}
+
+.survey-modal-header-pt1 {
+  display: flex;
+  justify-content: flext-start;
+  align-items: center;
+  width: 50%;
+}
+
+.survey-modal-header-pt2 {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 50%;
+}
+
+.survey-escape-btn {
+  position: relative;
+  right: 28.89px;
 }
