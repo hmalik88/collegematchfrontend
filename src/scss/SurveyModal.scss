@@ -31,6 +31,7 @@
   color: #fff;
   position: relative;
   left: 41px;
+  cursor: default;
 }
 
 .survey-body-text {
@@ -42,6 +43,7 @@
   top: 60px;
   width: 80%;
   letter-spacing: 1px;
+  cursor: default;
 }
 
 .survey-modal-header-pt1 {
@@ -60,5 +62,6 @@
 
 .survey-escape-btn {
   position: relative;
-  right: 28.89px;
+  right: 20px;
+  cursor: pointer;
 }

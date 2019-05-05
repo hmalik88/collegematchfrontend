@@ -1,7 +1,6 @@
 import React from 'react'
 import collegedata from '../collegedata.json'
 import '../scss/Home.scss'
-import NavBar from './NavBar'
 import addButton from '../images/add-button.svg'
 import leftButton from '../images/left_carousel_button.svg'
 import rightButton from '../images/right_carousel_button.svg'
@@ -55,7 +54,6 @@ export default class HomeContainer extends React.Component {
   render() {
     return(
       <>
-        <NavBar />
         <div id="second-portion-home-left">
           <h1 id="home-current-tracks">Current Tracks:</h1>
         </div>

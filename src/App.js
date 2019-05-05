@@ -2,12 +2,7 @@ import React, { Component } from 'react';
 import { Route, Switch, Redirect, withRouter} from 'react-router-dom';
 import LoginAndCreateContainer from './containers/LoginAndCreateContainer'
 import WelcomeContainer from './containers/WelcomeContainer'
-import HomeContainer from './containers/HomeContainer'
-import CollegeSearchContainer from './containers/CollegeSearchContainer'
-import CollegeInfoContainer from './containers/CollegeInfoContainer'
-import CollegeTrackContainer from './containers/CollegeTrackContainer.js'
-import IntelliMatch from './containers/IntelliMatch'
-import Survey from './containers/Survey'
+import NavComponents from './containers/NavComponents'
 import './scss/App.scss'
 
 
@@ -72,14 +67,9 @@ class App extends Component {
     return (
       <>
         <Switch>
-          <Route exact path="/:college/tracks" render={ () => <CollegeTrackContainer />} />
-          <Route exact path="/:linkName/info" render={() => <CollegeInfoContainer props={this.props} unitId={this.props.location.unitId} />} />
-          <Route exact path="/intellimatch/:number" render={(props) => <Survey {...props} />} />
-          <Route exact path="/intellimatch" render={() => <IntelliMatch />} />
-          <Route exact path="/home" render={() => <HomeContainer user={this.state.user} />} />
-          <Route exact path="/search" component={CollegeSearchContainer} />
           <Route exact path="/login" render={() => <LoginAndCreateContainer handleLogin={this.handleLogin} />} />
           <Route exact path="/" component={WelcomeContainer} />
+          <NavComponents user={this.state.user} />
         </Switch>
       </>
     );

@@ -1,6 +1,5 @@
 import React from 'react'
 import '../scss/CollegeTrack.scss'
-import NavBar from './NavBar'
 import addButton from '../images/add-button.svg'
 import CreateModal from '../components/CreateModal'
 import taskClose from '../images/task-delete.svg'
@@ -38,7 +37,6 @@ export default class CollegeTrackContainer extends React.Component {
   render() {
     return(
       <>
-        <NavBar />
         <div id="second-portion-left-tracks">
           <h1 id="track-college-name">Harvard University</h1>
           <div id="track-logo"></div>

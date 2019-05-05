@@ -5,7 +5,7 @@ const Questions = {
   },
   Q2: {
     type: "rank",
-    question: "How Important is it to you that your potential college is competitive in sports?"
+    question: "How important is it to you that your potential college is competitive in sports?"
   },
   Q3: {
     type: "binary",
@@ -48,26 +48,22 @@ const Questions = {
     question: "How important is diversity to you in terms of the professors teaching at the college?"
   },
   Q13: {
-    type: "major",
-    question: "What major will you be applying for in college?"
-  },
-  Q14: {
     type: "binary",
     question: "Is studying abroad something that you would like to do during your time in college?"
   },
-  Q15: {
+  Q14: {
     type: "binary",
     question: "Will you be looking for on campus housing?"
   },
-  Q16: {
+  Q15: {
     type: "binary",
     question: "Are you looking to attend a college with an internationally diverse population?"
   },
-  Q17: {
+  Q16: {
     type: "rank",
     question: "How important is greek life to you?"
   },
- Q18: {
+ Q17: {
     type: "rank",
     question: "Will partying and socializing be a huge factor during your college life?"
   }

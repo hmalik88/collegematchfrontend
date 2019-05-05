@@ -1,5 +1,4 @@
 import React from 'react'
-import NavBar from './NavBar'
 import '../scss/IntelliMatch.scss'
 import intellimatchLogo from '../images/intellimatch-logo.svg'
 import { Link } from 'react-router-dom'
@@ -17,7 +16,6 @@ export default class IntelliMatch extends React.Component {
   render() {
     return(
       <>
-        <NavBar />
         <div id="first-portion-intellimatch">
           <h1 id="intellimatch-title">IntelliMatch</h1>
         </div>

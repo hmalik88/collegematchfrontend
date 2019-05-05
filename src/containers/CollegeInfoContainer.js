@@ -1,5 +1,4 @@
 import React from 'react'
-import NavBar from './NavBar'
 import '../scss/College.scss'
 import addButton from '../images/add-button.svg'
 import CreateModal from '../components/CreateModal.js'
@@ -43,7 +42,6 @@ export default class CollegeContainer extends React.Component {
   render() {
     return(
       <>
-        <NavBar />
         <div id="college-first-portion-left">
           <h1 id="college-name">Harvard University</h1>
         </div>

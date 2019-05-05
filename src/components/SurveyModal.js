@@ -5,7 +5,7 @@ import SurveyModalEscape from '../images/survey-modal-escape.svg'
 export default class SurveyModal extends React.Component {
 
   headerText = () => {
-    return <h1 className='survey-header-text'>Question {this.props.questionNumber} / 18</h1>
+    return <h1 className='survey-header-text'>Question {this.props.questionNumber} / 17</h1>
   }
 
   bodyText = () => {
