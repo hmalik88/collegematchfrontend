@@ -1,13 +1,22 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import '../scss/SurveyResults.scss'
 
-export default class SurveyResult extends React.Component {
+class SurveyResult extends React.Component {
 
   constructor() {
     super()
     let root = document.querySelector('#root');
     root.className = '';
     root.classList.toggle('result-root');
+  }
+
+  componentDidMount() {
+    Object.values(this.props.questions).forEach(answer => {
+      if (answer === '') {
+        this.props.history.push("/intellimatch")
+      }
+    })
   }
 
   render() {
@@ -17,3 +26,11 @@ export default class SurveyResult extends React.Component {
       )
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    questions: state
+  };
+}
+
+export default connect(mapStateToProps, null)(SurveyResult)
