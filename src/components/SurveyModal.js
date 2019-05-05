@@ -6,11 +6,15 @@ import SurveyModalEscape from '../images/survey-modal-escape.svg'
 class SurveyModal extends React.Component {
 
   headerText = () => {
-    return <h1 className='survey-header-text'>Question {this.props.questionNumber} / 17</h1>
+    if (this.props.questionNumber) {
+      return <h1 className='survey-header-text'>Question {this.props.questionNumber} / 17</h1>
+    }
   }
 
   bodyText = () => {
-    return <div className='survey-body-text'>{this.props.questionBody.question}</div>
+    if (this.props.questionBody) {
+      return <div className='survey-body-text'>{this.props.questionBody.question}</div>
+    }
   }
 
   handleEscape = () => {
@@ -22,6 +26,7 @@ class SurveyModal extends React.Component {
       return
     }
   }
+
 
 
   render() {

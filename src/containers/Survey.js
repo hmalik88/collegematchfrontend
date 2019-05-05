@@ -60,6 +60,26 @@ class Survey extends React.Component {
     e.target.classList.toggle('pressed-down')
   }
 
+  checkIfRemainingAnswers = () => {
+    let result;
+    Object.values(this.props.questions).forEach(answer => {
+      if (answer === '') {
+        result = true;
+      } else {
+        result = false;
+      }
+    })
+    return result;
+  }
+
+  checkSubmission = (e) => {
+    if (this.determineQuestionNumber() === '17' && this.checkIfRemainingAnswers()) {
+      // e.preventDefault()
+      // let message = "You cannot view your results without answering all the questions!"
+      // window.alert(message)
+    }
+  }
+
   componentDidMount() {
     let leftButton = document.querySelector('.left-survey-button');
     if (this.determineQuestionNumber() === '1') {
@@ -81,6 +101,7 @@ class Survey extends React.Component {
   }
 
   render() {
+
     return(
       <>
         <div id="first-portion-survey">
@@ -91,7 +112,7 @@ class Survey extends React.Component {
             <img src={leftSurvey} onMouseDown={this.handleClick} onMouseUp={this.handleClick} alt="left-button" />
           </Link>
           <SurveyModal questionNumber={this.determineQuestionNumber()} questionBody={this.determineBody()} />
-          <Link to={this.determineRightLink()} className="right-survey-button">
+          <Link to={this.determineRightLink()} onClick={this.checkSubmission} className="right-survey-button" >
             <img src={rightSurvey} onMouseDown={this.handleClick} onMouseUp={this.handleClick} alt="right-button" />
           </Link>
         </div>
