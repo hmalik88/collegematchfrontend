@@ -13,7 +13,7 @@ export default class NavComponents extends React.Component {
   render() {
     return(
       <>
-        <NavBar />
+        <NavBar {...this.props} />
         <Route exact path="/:college/tracks" render={ () => <CollegeTrackContainer />} />
         <Route exact path="/:linkName/info" render={() => <CollegeInfoContainer props={this.props} unitId={this.props.location.unitId} />} />
         <Route exact path="/intellimatch/:number" render={(props) => <Survey {...props} />} />

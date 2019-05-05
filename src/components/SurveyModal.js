@@ -1,9 +1,9 @@
 import React from 'react'
-import { Redirect } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import '../scss/SurveyModal.scss'
 import SurveyModalEscape from '../images/survey-modal-escape.svg'
 
-export default class SurveyModal extends React.Component {
+class SurveyModal extends React.Component {
 
   headerText = () => {
     return <h1 className='survey-header-text'>Question {this.props.questionNumber} / 17</h1>
@@ -17,7 +17,7 @@ export default class SurveyModal extends React.Component {
     let message = "Please be aware that exiting out of this survey will discard any question choices you have made"
     if (window.confirm(message)) {
       console.log("should be redirecting to intellimatch page")
-      return <Redirect to="/intellimatch" />
+      this.props.history.push("/intellimatch")
     } else {
       return
     }
@@ -43,3 +43,5 @@ export default class SurveyModal extends React.Component {
   }
 
 }
+
+export default withRouter(SurveyModal)
