@@ -13,7 +13,7 @@ const Questions = {
   },
   Q4: {
     type: "binary",
-    question: "Is it important to you that you’re surrounded by mostly students who are looking to study the same subjects?"
+    question: "Do you wish to be in a school where students are mostly studying the same subjects?"
   },
   Q5: {
     type: "rank",

@@ -4,6 +4,7 @@ import intellimatchLogo from '../images/intellimatch-logo.svg'
 import { Link } from 'react-router-dom'
 
 
+
 export default class IntelliMatch extends React.Component {
 
   constructor() {
@@ -26,7 +27,7 @@ export default class IntelliMatch extends React.Component {
             </div>
           </div>
           <div id="second-portion-right-im">
-            <img id="im-logo" src={intellimatchLogo} alt="intellimatch" />
+            <img id="im-logo" src={intellimatchLogo} alt="" />
             <Link className="im-link-survey" to="/intellimatch/1"><div id="im-enter">Begin</div></Link>
           </div>
         </div>
