@@ -74,9 +74,9 @@ class Survey extends React.Component {
 
   checkSubmission = (e) => {
     if (this.determineQuestionNumber() === '17' && this.checkIfRemainingAnswers()) {
-      // e.preventDefault()
-      // let message = "You cannot view your results without answering all the questions!"
-      // window.alert(message)
+      e.preventDefault()
+      let message = "You cannot view your results without answering all the questions!"
+      window.alert(message)
     }
   }
 
