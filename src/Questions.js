@@ -25,45 +25,41 @@ const Questions = {
   },
   Q7: {
     type: "rank",
-    question: "Will you be looking to live abroad for school?"
-  },
-  Q8: {
-    type: "rank",
     question: "How important is total tuition cost in your decision?"
   },
-  Q9: {
+  Q8: {
     type: "location",
     question: "Are there any particular cities you wish to attend college in?"
   },
+  Q9: {
+    type: "rank",
+    question: "Are smaller class sizes important to you?"
+  },
   Q10: {
     type: "rank",
-    question: "Do you prefer learning in smaller class sizes or larger?"
+    question: "How important is diversity to you in terms of the student population?"
   },
   Q11: {
     type: "rank",
-    question: "How important is diversity to you in terms of the student population ?"
-  },
-  Q12: {
-    type: "rank",
     question: "How important is diversity to you in terms of the professors teaching at the college?"
   },
-  Q13: {
+  Q12: {
     type: "binary",
     question: "Is studying abroad something that you would like to do during your time in college?"
   },
-  Q14: {
+  Q13: {
     type: "binary",
     question: "Will you be looking for on campus housing?"
   },
-  Q15: {
+  Q14: {
     type: "binary",
     question: "Are you looking to attend a college with an internationally diverse population?"
   },
-  Q16: {
+  Q15: {
     type: "rank",
     question: "How important is greek life to you?"
   },
- Q17: {
+ Q16: {
     type: "rank",
     question: "Will partying and socializing be a huge factor during your college life?"
   }

@@ -23,6 +23,7 @@
   display: flex;
   align-items: flex-start;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .survey-header-text {
@@ -66,3 +67,137 @@
   right: 20px;
   cursor: pointer;
 }
+
+.survey-select, .survey-select option  {
+  position: relative;
+  width: 400px;
+  height: 75px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 27px;
+  font-weight: 400;
+  color: #000;
+  padding-left: 20px;
+}
+
+.survey-select option:focus {
+  outline:none;
+  border:none;
+  box-shadow:none;
+}
+
+.rank-line {
+  height: 2px;
+  width: 551px;
+  background-color: #000;
+  border: 0 none;
+  position: relative;
+  top: 20px;
+}
+
+.not-desired-circle {
+  border-radius: 50%;
+  border: 2px solid #000;
+  height: 29px;
+  width: 29px;
+  background-color: #fff;
+  position: absolute;
+  right: 700px;
+  bottom: 80px;
+  cursor: pointer;
+}
+
+.not-important-circle {
+  border-radius: 50%;
+  border: 2px solid #000;
+  height: 29px;
+  width: 29px;
+  background-color: #fff;
+  position: absolute;
+  left: 250px;
+  bottom: 80px;
+  cursor: pointer;
+}
+
+.neutral-circle {
+  border-radius: 50%;
+  border: 2px solid #000;
+  height: 29px;
+  width: 29px;
+  background-color: #fff;
+  position: absolute;
+  left: 400px;
+  bottom: 80px;
+  cursor: pointer;
+}
+
+.little-importance-circle {
+  border-radius: 50%;
+  border: 2px solid #000;
+  height: 29px;
+  width: 29px;
+  background-color: #fff;
+  position: absolute;
+  left: 550px;
+  bottom: 80px;
+  cursor: pointer;
+}
+
+.very-important-circle {
+  border-radius: 50%;
+  border: 2px solid #000;
+  height: 29px;
+  width: 29px;
+  background-color: #fff;
+  position: absolute;
+  left: 700px;
+  bottom: 80px;
+  cursor: pointer;
+}
+
+.rank-selection {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: #000;
+
+}
+
+.not-desired-text {
+  position: absolute;
+  right: 660px;
+  bottom: 40px;
+}
+
+.not-important-text {
+  position: absolute;
+  left: 200px;
+  bottom: 130px;
+
+}
+
+.neutral-text {
+  position: absolute;
+  left: 380px;
+  bottom: 40px;
+}
+
+.little-importance-text {
+  position: absolute;
+  left: 475px;
+  bottom: 130px;
+}
+
+.very-important-text {
+  position: absolute;
+  left: 640px;
+  bottom: 40px;
+}
+
+.picked-circle {
+  background-color: #486CB2;
+}
+
+
+
+
+

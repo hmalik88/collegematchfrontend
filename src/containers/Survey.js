@@ -30,7 +30,7 @@ class Survey extends React.Component {
 
   determineLeftLink = () => {
     let questionNumber = this.determineQuestionNumber();
-    let questionSet = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17"];
+    let questionSet = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16"];
     if (questionNumber === '1') {
       return '/';
     } else if (questionSet.includes(questionNumber)) {
@@ -44,8 +44,8 @@ class Survey extends React.Component {
 
   determineRightLink = () => {
     let questionNumber = this.determineQuestionNumber();
-    let questionSet = ["1","2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16"];
-    if (questionNumber === '17') {
+    let questionSet = ["1","2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15"];
+    if (questionNumber === '16') {
       return '/intellimatch/results'
     } else if (questionSet.includes(questionNumber)) {
       let linkResult = parseInt(questionNumber) + 1;
@@ -73,7 +73,7 @@ class Survey extends React.Component {
   }
 
   checkSubmission = (e) => {
-    if (this.determineQuestionNumber() === '17' && this.checkIfRemainingAnswers()) {
+    if (this.determineQuestionNumber() === '16' && this.checkIfRemainingAnswers()) {
       e.preventDefault()
       let message = "You cannot view your results without answering all the questions!"
       window.alert(message)
