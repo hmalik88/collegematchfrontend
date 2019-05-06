@@ -75,8 +75,9 @@ class SurveyModal extends React.Component {
 
   binarySelection = () => {
     return (
-      <div>
-
+      <div className="binary-container">
+        <div className="binary-yes binary-choice" onClick={this.handleBinaryChoice}>Yes</div>
+        <div className="binary-no binary-choice" onClick={this.handleBinaryChoice}>No</div>
       </div>
     )
   }
@@ -92,6 +93,17 @@ class SurveyModal extends React.Component {
     e.target.classList.toggle('picked-circle');
   }
 
+  handleBinaryChoice = e => {
+    let list = document.querySelectorAll('.binary-choice');
+    list.forEach(el => {
+      let classList= [...el.classList]
+      if (classList.includes('picked-binary')) {
+        el.classList.toggle('picked-binary')
+      }
+    })
+    e.target.classList.toggle('picked-binary')
+  }
+
   handleEscape = () => {
     let message = "Please be aware that exiting out of this survey will discard any question choices you have made"
     if (window.confirm(message)) {
@@ -104,7 +116,7 @@ class SurveyModal extends React.Component {
   bodyPullCheck = () => {
     let body = document.querySelector('.survey-body-text')
     body.classList.remove('body-pull')
-    if (this.props.questionBody.type === 'rank') {
+    if (this.props.questionBody.type === 'rank' && this.props.questionNumber !== '15') {
       body.classList.toggle('body-pull')
     }
   }

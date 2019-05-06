@@ -49,7 +49,7 @@
 }
 
 .body-pull {
-  top: 40px;
+  top: 50px;
 }
 
 .survey-modal-header-pt1 {
@@ -94,8 +94,9 @@
   width: 551px;
   background-color: #000;
   border: 0 none;
-  position: relative;
-  top: 20px;
+  position: absolute;
+  right: 150px;
+  top: 344px;
 }
 
 .not-desired-circle {
@@ -166,6 +167,10 @@
 
 }
 
+.not-desired-text, .not-important-text, .neutral-text, .little-importance-text, .very-important-text {
+  cursor: default;
+}
+
 .not-desired-text {
   position: absolute;
   right: 660px;
@@ -200,6 +205,37 @@
 .picked-circle {
   background-color: #486CB2;
 }
+
+.binary-container {
+  width: 488px;
+  height: 78px;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  top: 30px;
+}
+
+.binary-yes, .binary-no {
+  width: 214px;
+  height: 78px;
+  border-radius: 19px;
+  background-color: #D8D8D8;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 30px;
+  font-weight: 500;
+  color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.binary-yes:hover, .binary-no:hover, .picked-binary {
+  background-color: #486CB2;
+  color: #fff;
+}
+
+
 
 
 
