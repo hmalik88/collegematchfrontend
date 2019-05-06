@@ -54,16 +54,6 @@ class SurveyModal extends React.Component {
     )
   }
 
-  handleCircleChoice = e => {
-    let list = document.querySelectorAll('.rank-circle');
-    list.forEach(el => {
-      let classList = [...el.classList]
-      if (classList.includes('picked-circle')) {
-        el.classList.toggle('picked-circle')
-      }
-    })
-    e.target.classList.toggle('picked-circle');
-  }
 
   rankSelection = () => {
     return(
@@ -83,12 +73,49 @@ class SurveyModal extends React.Component {
     )
   }
 
+  binarySelection = () => {
+    return (
+      <div>
+
+      </div>
+    )
+  }
+
+  handleCircleChoice = e => {
+    let list = document.querySelectorAll('.rank-circle');
+    list.forEach(el => {
+      let classList = [...el.classList]
+      if (classList.includes('picked-circle')) {
+        el.classList.toggle('picked-circle')
+      }
+    })
+    e.target.classList.toggle('picked-circle');
+  }
+
   handleEscape = () => {
     let message = "Please be aware that exiting out of this survey will discard any question choices you have made"
     if (window.confirm(message)) {
       this.props.history.push("/intellimatch")
     } else {
       return
+    }
+  }
+
+  bodyPullCheck = () => {
+    let body = document.querySelector('.survey-body-text')
+    body.classList.remove('body-pull')
+    if (this.props.questionBody.type === 'rank') {
+      body.classList.toggle('body-pull')
+    }
+  }
+
+  componentDidMount() {
+    this.bodyPullCheck();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.questionBody !== prevProps.questionBody) {
+      this.bodyPullCheck();
     }
   }
 
