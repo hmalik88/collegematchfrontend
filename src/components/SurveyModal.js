@@ -5,6 +5,8 @@ import SurveyModalEscape from '../images/survey-modal-escape.svg'
 
 class SurveyModal extends React.Component {
 
+  state = {location: ''}
+
   headerText = () => {
     if (this.props.questionNumber) {
       return <h1 className='survey-header-text'>Question {this.props.questionNumber} / 16</h1>
@@ -80,6 +82,22 @@ class SurveyModal extends React.Component {
         <div className="binary-no binary-choice" onClick={this.handleBinaryChoice}>No</div>
       </div>
     )
+  }
+
+  locationSelection = () => {
+    return (
+      <div className="location-container">
+        <input type="text" onKeyPress={this.handleTabPress} onChange={this.handleLocationChoice} className="location-tag-input" value={this.state.location} />
+      </div>
+    )
+  }
+
+  handleLocationChoice = e => {
+    this.setState({location: e.target.value})
+  }
+
+  handleTabPress = e => {
+    debugger
   }
 
   handleCircleChoice = e => {
