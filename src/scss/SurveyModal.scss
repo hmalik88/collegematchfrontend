@@ -241,6 +241,7 @@
   width: 600px;
   height: 50px;
   bottom: 50px;
+  display: flex;
 }
 
 .location-tag-input {
@@ -251,6 +252,30 @@
   font-weight: 400;
   color: #000;
   border: 1px solid #000;
+  position: relative;
+}
+
+.location-tag {
+  background-color: #D8D8D8;
+  border-radius: 10px;
+  width: 120px;
+  height: 40px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: #000;
+  justify-self: flex-end;
+  display: flex;
+  justify-content: center;
+}
+
+.location-text {
+  position: relative;
+  top: 10px;
+}
+
+.tag-0 {
+  width: calc(100% - 120px);
 }
 
 

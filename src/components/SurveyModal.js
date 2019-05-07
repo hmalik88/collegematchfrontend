@@ -5,7 +5,7 @@ import SurveyModalEscape from '../images/survey-modal-escape.svg'
 
 class SurveyModal extends React.Component {
 
-  state = {location: ''}
+  state = {location: '', tagCount: 0}
 
   headerText = () => {
     if (this.props.questionNumber) {
@@ -87,7 +87,7 @@ class SurveyModal extends React.Component {
   locationSelection = () => {
     return (
       <div className="location-container">
-        <input type="text" onKeyPress={this.handleTabPress} onChange={this.handleLocationChoice} className="location-tag-input" value={this.state.location} />
+        <input type="text" onKeyPress={this.handleEnterPress} onChange={this.handleLocationChoice} className="location-tag-input" value={this.state.location} />
       </div>
     )
   }
@@ -96,8 +96,25 @@ class SurveyModal extends React.Component {
     this.setState({location: e.target.value})
   }
 
-  handleTabPress = e => {
-    debugger
+  handleEnterPress = e => {
+    if (e.key === 'Enter') {
+      this.produceTab();
+      this.setState({location: ''})
+    }
+  }
+
+  produceTab = () => {
+   let el = document.createElement('div')
+   let locationDiv = document.querySelector('.location-container')
+   locationDiv.appendChild(el)
+   el.className = `location-${this.state.tagCount} location-tag`
+   let textDiv = document.createElement('div')
+   textDiv.className = 'location-text'
+   textDiv.innerText = this.state.location
+   let input = document.querySelector('.location-tag-input')
+   input.classList.toggle(`tag-${this.state.tagCount}`)
+   el.appendChild(textDiv);
+   this.setState({tagCount: this.state.tagCount + 1})
   }
 
   handleCircleChoice = e => {
