@@ -109,8 +109,11 @@ class SurveyModal extends React.Component {
       let excessValue = value.slice(0, 2).toUpperCase()
       if (!states.includes(excessValue)) {
         window.alert('Please choose an actual state');
+        this.setState({location: ''});
+        return;
+      } else {
+        this.setState({location: excessValue})
       }
-      this.setState({location: excessValue})
     } else {
       let normalValue = value.toUpperCase();
       this.setState({location: normalValue})
