@@ -128,6 +128,16 @@ class SurveyModal extends React.Component {
 
   handleEnterPress = e => {
     if (e.key === 'Enter' && this.state.location.length === 2) {
+      let states = document.querySelectorAll('.location-text');
+      let textArr = [];
+      states.forEach(state => {
+        textArr.push(state.innerText)
+      })
+      if (textArr.includes(this.state.location)) {
+        window.alert('You\'ve already chose this state!')
+        this.setState({location: ''});
+        return;
+      }
       this.produceTab();
       this.setState({location: ''})
     } else if (e.key === 'Backspace' && this.state.location === '') {
