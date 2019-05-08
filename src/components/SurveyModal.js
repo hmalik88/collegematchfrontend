@@ -99,15 +99,21 @@ class SurveyModal extends React.Component {
   }
 
   handleLocationChoice = e => {
+    let states = ['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'DC', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY'];
     let value = e.target.value
     let tabs = document.querySelectorAll('.location-tag');
     if (tabs.length === 3) {
       return;
     }
-    if (value.length > 2) {
-      this.setState({location: value.slice(0, 2).toUpperCase()})
+    if (value.length >= 2) {
+      let excessValue = value.slice(0, 2).toUpperCase()
+      if (!states.includes(excessValue)) {
+        window.alert('Please choose an actual state');
+      }
+      this.setState({location: excessValue})
     } else {
-      this.setState({location: e.target.value.toUpperCase()})
+      let normalValue = value.toUpperCase();
+      this.setState({location: normalValue})
     }
   }
 
