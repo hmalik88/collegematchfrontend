@@ -48,6 +48,14 @@
   cursor: default;
 }
 
+.q8-second {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: #000;
+  display: inline-block;
+}
+
 .body-pull {
   top: 50px;
 }
@@ -269,8 +277,8 @@
   width: 120px;
   height: 40px;
   font-family: 'Montserrat', sans-serif;
-  font-size: 15px;
-  font-weight: 400;
+  font-size: 17px;
+  font-weight: 500;
   color: #000;
   justify-self: flex-start;
   display: flex;
@@ -298,10 +306,12 @@
 
 .tag-2 {
   width: calc(100% - 390px);
+  height: 40px;
 }
 
 .tag-3 {
   width: calc(100% - 520px);
+  height: 40px;
 }
 
 

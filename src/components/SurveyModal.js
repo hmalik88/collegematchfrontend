@@ -14,7 +14,14 @@ class SurveyModal extends React.Component {
   }
 
   bodyText = () => {
-    if (this.props.questionBody) {
+    if (this.props.questionBody && this.props.questionNumber === '8') {
+      let words = this.props.questionBody.question.split('(');
+      debugger
+      let parentheses = '('
+      let secondSection = parentheses + words[1]
+      let wholeSection = <div className="q8-first">{words[0]}<div className="q8-second">{secondSection}</div></div>;
+      return <div className='survey-body-text question-8'>{wholeSection}</div>
+    } else if (this.props.questionBody) {
       return <div className='survey-body-text'>{this.props.questionBody.question}</div>
     }
   }
@@ -93,7 +100,12 @@ class SurveyModal extends React.Component {
   }
 
   handleLocationChoice = e => {
-    this.setState({location: e.target.value})
+    let value = e.target.value
+    if (value.length > 2) {
+      this.setState({location: value.slice(0, 2)})
+    } else {
+      this.setState({location: e.target.value})
+    }
   }
 
   handleEnterPress = e => {
