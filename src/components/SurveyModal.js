@@ -121,7 +121,7 @@ class SurveyModal extends React.Component {
   }
 
   handleEnterPress = e => {
-    if (e.key === 'Enter') {
+    if (e.key === 'Enter' && this.state.location.length === 2) {
       this.produceTab();
       this.setState({location: ''})
     } else if (e.key === 'Backspace' && this.state.location === '') {
