@@ -16,7 +16,6 @@ class SurveyModal extends React.Component {
   bodyText = () => {
     if (this.props.questionBody && this.props.questionNumber === '8') {
       let words = this.props.questionBody.question.split('(');
-      debugger
       let parentheses = '('
       let secondSection = parentheses + words[1]
       let wholeSection = <div className="q8-first">{words[0]}<div className="q8-second">{secondSection}</div></div>;
@@ -203,6 +202,32 @@ class SurveyModal extends React.Component {
     }
   }
 
+  tagChecker = () => {
+    if (this.props.questionNumber !== '8') {
+      let tags = document.querySelectorAll('.location-tag');
+      if (tags.length > 0) {
+        tags.forEach( tag => tag.style.display = 'none')
+      }
+    } else if (this.props.questionNumber === '8') {
+      let tags = document.querySelectorAll('.location-tag');
+      if (tags.length > 0) {
+        let input = document.querySelector('.location-tag-input');
+        input.style.order = "1";
+        tags.forEach( tag => {
+          tag.style.display = 'flex'
+        })
+        let num = tags.length;
+        for (let i = 0; i < num; i++) {
+          let input = document.querySelector('.location-tag-input');
+          let thisTag = document.querySelector(`.location-${i}`);
+          thisTag.style.order = `${num + 1 - i}`
+          let name = `tag-${i}`;
+          input.classList.toggle(name);
+        }
+      }
+    }
+  }
+
   componentDidMount() {
     this.bodyPullCheck();
   }
@@ -210,6 +235,7 @@ class SurveyModal extends React.Component {
   componentDidUpdate(prevProps) {
     if (this.props.questionBody !== prevProps.questionBody) {
       this.bodyPullCheck();
+      this.tagChecker();
     }
   }
 
