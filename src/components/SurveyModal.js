@@ -165,14 +165,19 @@ class SurveyModal extends React.Component {
   produceTab = () => {
    let el = document.createElement('div');
    let locationDiv = document.querySelector('.location-container');
+   let input = document.querySelector('.location-tag-input')
    if (this.state.tagCount === 0) {
+    input.style.order = "2"
+    el.style.order = "1"
     locationDiv.appendChild(el);
    } else if (this.state.tagCount === 1) {
-    let firstTag = document.querySelector('.location-0');
-    locationDiv.insertBefore(el, firstTag);
+    input.style.order = "3"
+    el.style.order = "2"
+    locationDiv.appendChild(el);
    } else if (this.state.tagCount === 2) {
-    let secondTag = document.querySelector('.location-1');
-    locationDiv.insertBefore(el, secondTag);
+    input.style.order = "4"
+    el.style.order = "3"
+    locationDiv.appendChild(el);
    } else if (this.state.tagcount > 2) {
     return;
    }
@@ -180,7 +185,6 @@ class SurveyModal extends React.Component {
    let textDiv = document.createElement('div');
    textDiv.className = 'location-text';
    textDiv.innerText = this.state.location;
-   let input = document.querySelector('.location-tag-input');
    input.classList.toggle(`tag-${this.state.tagCount}`);
    el.appendChild(textDiv);
    this.setState({tagCount: this.state.tagCount + 1});
@@ -235,7 +239,7 @@ class SurveyModal extends React.Component {
       let tags = document.querySelectorAll('.location-tag');
       if (tags.length > 0) {
         let input = document.querySelector('.location-tag-input');
-        input.style.order = "1";
+        input.style.order = "4";
         tags.forEach( tag => {
           tag.style.display = 'flex'
         })
@@ -243,7 +247,7 @@ class SurveyModal extends React.Component {
         for (let i = 0; i < num; i++) {
           let input = document.querySelector('.location-tag-input');
           let thisTag = document.querySelector(`.location-${i}`);
-          thisTag.style.order = `${num + 1 - i}`
+          thisTag.style.order = `${i+1}`
           let name = `tag-${i}`;
           input.classList.toggle(name);
         }

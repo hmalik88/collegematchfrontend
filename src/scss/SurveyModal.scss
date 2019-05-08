@@ -253,7 +253,7 @@
   border: 1px solid #000;
   justify-content: space-between;
   align-items: center;
-  flex-direction: row-reverse;
+  flex-direction: row;
   border-radius: 12px;
 }
 
@@ -269,6 +269,7 @@
   border-radius: 12px;
   padding-left: 10px;
   padding-right: 10px;
+  display: flex;
 }
 
 .location-tag {
@@ -286,6 +287,18 @@
   justify-content: center;
   margin-left: 3px;
   margin-right: 3px;
+}
+
+.location-0 {
+  order: 2;
+}
+
+.location-1 {
+  order: 3;
+}
+
+.location-2 {
+  order: 4;
 }
 
 .location-text {
