@@ -100,6 +100,10 @@ class SurveyModal extends React.Component {
 
   handleLocationChoice = e => {
     let value = e.target.value
+    let tabs = document.querySelectorAll('.location-tag');
+    if (tabs.length === 3) {
+      return;
+    }
     if (value.length > 2) {
       this.setState({location: value.slice(0, 2).toUpperCase()})
     } else {
@@ -112,17 +116,12 @@ class SurveyModal extends React.Component {
       this.produceTab();
       this.setState({location: ''})
     } else if (e.key === 'Backspace' && this.state.location === '') {
-      let firstEl, secondEl, thirdEl, fourthEl;
+      let firstEl, secondEl, thirdEl;
       let input = document.querySelector('.location-tag-input')
       firstEl = document.querySelector('.location-0');
       secondEl = document.querySelector('.location-1');
       thirdEl = document.querySelector('.location-2');
-      fourthEl = document.querySelector('.location-3');
-      if (fourthEl && thirdEl && secondEl && firstEl) {
-        fourthEl.remove();
-        input.classList.toggle('tag-3');
-        this.setState({tagCount: 3})
-      } else if (thirdEl && secondEl && firstEl) {
+      if (thirdEl && secondEl && firstEl) {
         thirdEl.remove();
         input.classList.toggle('tag-2');
         this.setState({tagCount: 2})
@@ -133,7 +132,7 @@ class SurveyModal extends React.Component {
       } else if (firstEl) {
         firstEl.remove();
         input.classList.toggle('tag-0');
-        this.setState({tagCount: 0});
+        this.setState({tagCount: 0})
       }
     }
   }
@@ -149,9 +148,8 @@ class SurveyModal extends React.Component {
    } else if (this.state.tagCount === 2) {
     let secondTag = document.querySelector('.location-1');
     locationDiv.insertBefore(el, secondTag);
-   } else if (this.state.tagcount === 3) {
-    let thirdTag = document.querySelector('.location-2');
-    locationDiv.insertBefore(el, thirdTag);
+   } else if (this.state.tagcount > 2) {
+    return;
    }
    el.className = `location-${this.state.tagCount} location-tag`;
    let textDiv = document.createElement('div');

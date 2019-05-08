@@ -29,7 +29,7 @@ const Questions = {
   },
   Q8: {
     type: "location",
-    question: "Are there any particular states you wish to attend college in? (4 max abv. only)"
+    question: "Are there any particular states you wish to attend college in? (3 max abv. only)"
   },
   Q9: {
     type: "rank",
