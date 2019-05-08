@@ -87,7 +87,7 @@ class SurveyModal extends React.Component {
   locationSelection = () => {
     return (
       <div className="location-container">
-        <input type="text" onKeyPress={this.handleEnterPress} onChange={this.handleLocationChoice} className="location-tag-input" value={this.state.location} />
+        <input type="text" onKeyDown={this.handleEnterPress} onChange={this.handleLocationChoice} className="location-tag-input" value={this.state.location} />
       </div>
     )
   }
@@ -100,21 +100,56 @@ class SurveyModal extends React.Component {
     if (e.key === 'Enter') {
       this.produceTab();
       this.setState({location: ''})
+    } else if (e.key === 'Backspace' && this.state.location === '') {
+      let firstEl, secondEl, thirdEl, fourthEl;
+      let input = document.querySelector('.location-tag-input')
+      firstEl = document.querySelector('.location-0');
+      secondEl = document.querySelector('.location-1');
+      thirdEl = document.querySelector('.location-2');
+      fourthEl = document.querySelector('.location-3');
+      if (fourthEl && thirdEl && secondEl && firstEl) {
+        fourthEl.remove();
+        input.classList.toggle('tag-3');
+        this.setState({tagCount: 3})
+      } else if (thirdEl && secondEl && firstEl) {
+        thirdEl.remove();
+        input.classList.toggle('tag-2');
+        this.setState({tagCount: 2})
+      } else if (secondEl && firstEl) {
+        secondEl.remove();
+        input.classList.toggle('tag-1');
+        this.setState({tagCount: 1})
+      } else if (firstEl) {
+        firstEl.remove();
+        input.classList.toggle('tag-0');
+        this.setState({tagCount: 0});
+      }
     }
   }
 
   produceTab = () => {
-   let el = document.createElement('div')
-   let locationDiv = document.querySelector('.location-container')
-   locationDiv.appendChild(el)
-   el.className = `location-${this.state.tagCount} location-tag`
-   let textDiv = document.createElement('div')
-   textDiv.className = 'location-text'
-   textDiv.innerText = this.state.location
-   let input = document.querySelector('.location-tag-input')
-   input.classList.toggle(`tag-${this.state.tagCount}`)
+   let el = document.createElement('div');
+   let locationDiv = document.querySelector('.location-container');
+   if (this.state.tagCount === 0) {
+    locationDiv.appendChild(el);
+   } else if (this.state.tagCount === 1) {
+    let firstTag = document.querySelector('.location-0');
+    locationDiv.insertBefore(el, firstTag);
+   } else if (this.state.tagCount === 2) {
+    let secondTag = document.querySelector('.location-1');
+    locationDiv.insertBefore(el, secondTag);
+   } else if (this.state.tagcount === 3) {
+    let thirdTag = document.querySelector('.location-2');
+    locationDiv.insertBefore(el, thirdTag);
+   }
+   el.className = `location-${this.state.tagCount} location-tag`;
+   let textDiv = document.createElement('div');
+   textDiv.className = 'location-text';
+   textDiv.innerText = this.state.location;
+   let input = document.querySelector('.location-tag-input');
+   input.classList.toggle(`tag-${this.state.tagCount}`);
    el.appendChild(textDiv);
-   this.setState({tagCount: this.state.tagCount + 1})
+   this.setState({tagCount: this.state.tagCount + 1});
   }
 
   handleCircleChoice = e => {
