@@ -101,9 +101,9 @@ class SurveyModal extends React.Component {
   handleLocationChoice = e => {
     let value = e.target.value
     if (value.length > 2) {
-      this.setState({location: value.slice(0, 2)})
+      this.setState({location: value.slice(0, 2).toUpperCase()})
     } else {
-      this.setState({location: e.target.value})
+      this.setState({location: e.target.value.toUpperCase()})
     }
   }
 
