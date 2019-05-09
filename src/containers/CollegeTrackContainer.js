@@ -11,11 +11,24 @@ export default class CollegeTrackContainer extends React.Component {
     let root = document.querySelector('#root');
     root.className = '';
     root.classList.toggle('track-root');
+    this.state = {majorInputModal: '', collegeInputModal: ''}
   }
 
   handleModalOpen = () => {
     let modal = document.querySelector('.create-track-modal');
     modal.style.display = 'flex';
+  }
+
+  handleModalClose = e => {
+    let modal = document.querySelector('.create-track-modal');
+    modal.style.display = 'none';
+    this.setState({majorInputModal: '', collegeInputModal: ''})
+  }
+
+  handleChange = e => {
+    this.setState({
+      [e.target.className]: e.target.value
+    });
   }
 
   handleTabClick = e => {
@@ -146,7 +159,7 @@ export default class CollegeTrackContainer extends React.Component {
             </div>
           </div>
         </div>
-        <CreateModal />
+        <CreateModal handleChange={this.handleChange} majorInputModal={this.state.majorInputModal} collegeInputModal={this.state.collegeInputModal} handleModalClose={this.handleModalClose} />
       </>
       )
   }

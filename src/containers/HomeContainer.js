@@ -14,7 +14,7 @@ export default class HomeContainer extends React.Component {
     let root = document.querySelector('#root');
     root.className = '';
     root.classList.toggle('home-root');
-    this.state = {colleges: []}
+    this.state = {colleges: [], majorInputModal: '', collegeInputModal: ''}
   }
 
   getUnitIDs = () => {
@@ -41,14 +41,26 @@ export default class HomeContainer extends React.Component {
     modal.style.display = 'flex';
   }
 
+  handleChange = e => {
+    this.setState({
+      [e.target.className]: e.target.value
+    });
+  }
+
+  handleModalClose = e => {
+    let modal = document.querySelector('.create-track-modal');
+    modal.style.display = 'none';
+    this.setState({majorInputModal: '', collegeInputModal: ''})
+  }
+
   componentDidMount() {
+    let modal = document.querySelector('.create-track-modal');
+    modal.style.display = 'none';
     this.fetchAllColleges();
     let root = document.querySelector('#root');
     if ([root.classList].includes('login-root')) {
       root.classList.toggle('login-root')
     }
-    let modal = document.querySelector('.create-track-modal');
-    modal.style.display = 'none';
   }
 
   render() {
@@ -59,7 +71,7 @@ export default class HomeContainer extends React.Component {
         </div>
         <div id="second-portion-home-right">
           <h2 id="create-track-home">Create a track</h2>
-          <img onClick={this.handleModalOpen} id="add-button" src={addButton} alt="add-button" />
+          <img onClick={this.handleModalOpen} id="add-button" src={addButton} alt="" />
         </div>
         <div id="carousel-container">
           <div id="left-button-container">
@@ -78,7 +90,7 @@ export default class HomeContainer extends React.Component {
         <div id="third-portion-home-right">
           <Link to="/intellimatch" className="im-link"><button id="intellimatch-button">IntelliMatch</button></Link>
         </div>
-        <CreateModal />
+        <CreateModal handleChange={this.handleChange} majorInputModal={this.state.majorInputModal} collegeInputModal={this.state.collegeInputModal} handleModalClose={this.handleModalClose} />
       </>
       )
   }
