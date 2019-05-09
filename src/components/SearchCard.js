@@ -9,7 +9,7 @@ export default class SearchCard extends React.Component {
 
   fetchPic = () => {
     let id = this.props.unitId
-    fetch(`https://api.collegeai.com/v1/api/college/info?api_key=9FMs2Rj3ARpA&college_unit_ids=${id}&info_ids=campus_image`)
+    fetch(`https://api.collegeai.com/v1/api/college/info?api_key=&college_unit_ids=${id}&info_ids=campus_image`)
     .then(res=> res.json())
     .then(json => {
       this.setState({campusPic: json.colleges[0].campusImage})
