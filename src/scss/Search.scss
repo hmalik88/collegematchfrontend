@@ -70,14 +70,15 @@
   width: 88%;
   height: calc(100% - 46.5px);
   position: relative;
-  left: 8.25%;
+  padding-left: 8.25%;
   display: flex;
   justify-content: flex-start;
   align-content: space-between;
   flex-wrap: wrap;
-  margin-top: 46.5px;
+  padding-top: 46.5px;
   overflow-y: scroll;
 }
+
 
 .search-card {
   height: 292px;
@@ -87,10 +88,19 @@
   box-shadow: 3px 3px 6px rgba(0,0,0,.16) ;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
   cursor: pointer;
   margin-right: 120px;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+  transition: transform 300ms, box-shadow 300ms;
+}
+
+#search-result-field:last-child::after {
+  content: '';
+  height: 1px;
+  width: 100%;
+  display: block;
 }
 
 .pic-portion-card {
@@ -124,6 +134,10 @@
   letter-spacing: 1px;
 }
 
+.search-card-title:hover {
+  opacity: 0.7;
+}
+
 .search-card-city {
   font-family: 'Montserrat', sans-serif;
   font-size: 15px;
@@ -134,6 +148,14 @@
   margin-top: 20px;
 }
 
+.search-card:hover {
+  transform: scale(1.025);
+  box-shadow: 6px 6px 9px rgba(0,0,0,.16);
+}
+
 .search-card-pressed-down {
   transform: translateY(5px);
 }
+
+
+
