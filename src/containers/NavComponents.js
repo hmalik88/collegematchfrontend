@@ -17,7 +17,7 @@ class NavComponents extends React.Component {
         <NavBar {...this.props} />
         <Switch>
           <Route exact path="/:college/tracks" render={ () => <CollegeTrackContainer />} />
-          <Route exact path="/:linkName/info" render={() => <CollegeInfoContainer props={this.props} unitId={this.props.location.unitId} />} />
+          <Route exact path="/:linkName/info" render={(props) => <CollegeInfoContainer {...props} />} />
           <Route exact path="/intellimatch/results" render={(props) => <SurveyResult {...props} />} />
           <Route exact path="/intellimatch/:number" render={(props) => <Survey {...props} />} />
           <Route exact path="/intellimatch" render={() => <IntelliMatch />} />

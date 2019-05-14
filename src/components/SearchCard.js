@@ -1,12 +1,17 @@
 import React from 'react'
+import { withRouter } from 'react-router-dom'
 
-export default class SearchCard extends React.Component {
+class SearchCard extends React.Component {
 
+  handleClick = () => {
+    let linkName = `/${this.props.unitId}/info`
+    this.props.history.push(linkName);
+  }
 
   render() {
     let classCard = `search-card card-${this.props.unitId}`;
     return(
-        <div className={classCard} onMouseDown={(e) => this.props.handleCardClick(e, this.props.unitId)} onMouseUp={(e) => this.props.handleCardClick(e, this.props.unitId)}>
+        <div className={classCard} onClick={this.handleClick}>
           <div className="pic-portion-card">
             <img className="search-card-pic" src={this.props.pic} alt='' />
           </div>
@@ -22,3 +27,5 @@ export default class SearchCard extends React.Component {
       )
   }
 }
+
+export default withRouter(SearchCard);
