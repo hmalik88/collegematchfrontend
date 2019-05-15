@@ -2,6 +2,7 @@ import React from 'react'
 import '../scss/College.scss'
 import addButton from '../images/add-button.svg'
 import CreateModal from '../components/CreateModal.js'
+import cSchool from '../images/cschool.svg'
 
 
 export default class CollegeContainer extends React.Component {
@@ -14,7 +15,8 @@ export default class CollegeContainer extends React.Component {
     this.state = {
       college: {},
       majorInputModal: '',
-      collegeInputModal: ''
+      collegeInputModal: '',
+      pic: ''
     }
   }
 
@@ -36,11 +38,16 @@ export default class CollegeContainer extends React.Component {
   }
 
   fetchCollegeInfo = () => {
+    //come back to this to add in conditional setting of state based on the existence of long or short descriptions
     let id = this.props.match.params.linkName;
     fetch(`https://api.collegeai.com/api/college/info?api_key=9FMs2Rj3ARpA&college_unit_ids=${id}&info_ids=city%2Ccampus_image%2Clong_description%2Cshort_description`)
     .then(res => res.json())
     .then(collegeInfo => {
-      this.setState({college: collegeInfo.colleges[0]})
+      this.setState({
+        college: collegeInfo.colleges[0],
+        pic: collegeInfo.colleges[0].campusImage ? (collegeInfo.colleges[0].campusImage) : (cSchool),
+        collegeInputModal: collegeInfo.colleges[0].name
+      })
     })
   }
 
@@ -65,6 +72,7 @@ export default class CollegeContainer extends React.Component {
         </div>
         <div id="last-college-section-left">
           <div id="college-pic-container">
+            <img className="college-info-pic" src={this.state.pic} alt="" />
           </div>
         </div>
         <div id="last-college-section-right">

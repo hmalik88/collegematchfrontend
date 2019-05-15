@@ -1,10 +1,18 @@
 import React from 'react'
+import { withRouter } from 'react-router-dom'
 import closeModal from '../images/exit-button-create-modal.svg'
 import '../scss/Modal.scss'
 
-export default class CreateModal extends React.Component {
+class CreateModal extends React.Component {
 
-
+  componentDidMount() {
+    let locationArr = this.props.match.url.split('/')
+    if (locationArr.includes('info') || locationArr.includes('tracks')) {
+      let collegeInput = document.querySelector('.collegeInputModal');
+      collegeInput.removeEventListener('onChange', this.props.handleChange)
+      collegeInput.classList.toggle('grayed-input');
+    }
+  }
 
   render() {
     return(
@@ -27,3 +35,6 @@ export default class CreateModal extends React.Component {
       )
   }
 }
+
+
+export default withRouter(CreateModal)

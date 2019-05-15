@@ -3,15 +3,17 @@ import '../scss/CollegeTrack.scss'
 import addButton from '../images/add-button.svg'
 import CreateModal from '../components/CreateModal'
 import taskClose from '../images/task-delete.svg'
+import { withRouter } from 'react-router-dom'
+import cSchool from '../images/cschool.svg'
 
-export default class CollegeTrackContainer extends React.Component {
+class CollegeTrackContainer extends React.Component {
 
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     let root = document.querySelector('#root');
     root.className = '';
     root.classList.toggle('track-root');
-    this.state = {majorInputModal: '', collegeInputModal: ''}
+    this.state = {majorInputModal: '', collegeInputModal: '', college: {}, logoPic: ''}
   }
 
   handleModalOpen = () => {
@@ -40,19 +42,34 @@ export default class CollegeTrackContainer extends React.Component {
     e.target.style.opacity = 1.0;
   }
 
+  fetchCollegeInfo = () => {
+    let id = this.props.match.params.college;
+    fetch(`https://api.collegeai.com/api/college/info?api_key=9FMs2Rj3ARpA&college_unit_ids=${id}&info_ids=city%2Clogo_image%2Clong_description%2Cshort_description`)
+    .then(res => res.json())
+    .then(collegeInfo => {
+      this.setState({
+        college: collegeInfo.colleges[0],
+        collegeInputModal: collegeInfo.colleges[0].name,
+        logoPic: collegeInfo.colleges[0].logoImage ? (collegeInfo.colleges[0].logoImage) : (cSchool)
+
+      })
+    })
+  }
+
   componentDidMount() {
     let modal = document.querySelector('.create-track-modal');
     modal.style.display = 'none';
     let tabContainer = document.querySelector('#track-tab-container');
     tabContainer.children[0].style.opacity = 1.0;
+    this.fetchCollegeInfo();
   }
 
   render() {
     return(
       <>
         <div id="second-portion-left-tracks">
-          <h1 id="track-college-name">Harvard University</h1>
-          <div id="track-logo"></div>
+          <h1 id="track-college-name">{this.state.college.name}</h1>
+          <div id="track-logo"><img className="logoPic" src={this.state.logoPic} alt='' /></div>
         </div>
         <div id="second-portion-right-tracks">
           <h2 id="create-track-tracks">Create a track</h2>
@@ -165,3 +182,5 @@ export default class CollegeTrackContainer extends React.Component {
   }
 
 }
+
+export default withRouter(CollegeTrackContainer)
