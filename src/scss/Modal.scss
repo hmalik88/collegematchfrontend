@@ -1,6 +1,6 @@
 .create-track-modal {
   height: calc(614px - 25%);
-  width: calc(761px - 50%);
+  width: calc(761px - 60%);
   background-color: #486CB2;
   border-radius: 26px 26px 0px 0px;
   position: absolute;
@@ -13,7 +13,7 @@
 }
 
 .header-create-track-modal {
-  width: calc(761px - 50%);
+  width: calc(761px - 60%);
   height: 79px;
   display: grid;
   grid-template-columns: 50% 50%;
@@ -47,7 +47,7 @@
 
 .inner-create-track-modal {
   height: 535px;
-  width: calc(761px - 50%);
+  width: calc(761px - 60%);
   background-color: #fff;
   display: flex;
   flex-direction: column;
@@ -78,7 +78,7 @@
   font-size: 25px;
   font-weight: 300;
   color: #000;
-  margin-top: 35px;
+  margin-top: 50px;
 }
 
 .major-modal-label, .college-modal-label {
@@ -143,5 +143,5 @@
 }
 
 .spacer {
-  height: 40px;
+  height: 80px;
 }
