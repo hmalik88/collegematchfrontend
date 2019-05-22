@@ -1,5 +1,4 @@
 import React from 'react'
-import collegedata from '../collegedata.json'
 import '../scss/Home.scss'
 import addButton from '../images/add-button.svg'
 import leftButton from '../images/left_carousel_button.svg'
@@ -14,22 +13,8 @@ export default class HomeContainer extends React.Component {
     let root = document.querySelector('#root');
     root.className = '';
     root.classList.toggle('home-root');
-    this.state = {colleges: [], majorInputModal: '', collegeInputModal: ''}
-  }
-
-  getUnitIDs = () => {
-    let unitIDs = '';
-    collegedata.forEach(college => {
-      unitIDs += college['Unit Id'] + '%2C'
-    });
-    return unitIDs;
-  }
-
-  fetchAllColleges = () => {
-    let unitIDs = this.getUnitIDs();
-    fetch(`https://api.collegeai.com/api/college/info?api_key=9FMs2Rj3ARpA&college_unit_ids=${unitIDs}&info_ids=city%2Cin_state_tuition%2Cwebsite%2Cacceptance_rate%2Cavg_cost_of_attendance`)
-    .then(res => res.json())
-    .then(json => this.setState({colleges: json.colleges}));
+    this.state = {colleges: [], majorInputModal: '', collegeInputModal: '',
+    }
   }
 
   handleClick = e => {
@@ -45,6 +30,56 @@ export default class HomeContainer extends React.Component {
     this.setState({
       [e.target.className]: e.target.value
     });
+    let modal = document.querySelector('.collegeInputModal');
+    let resultField = document.querySelector('.search-drop-down');
+    if (modal === e.target && this.state.collegeInputModal.length > 1) {
+      resultField.style.display = 'flex'
+      this.fetchColleges(this.state.collegeInputModal)
+    } else if (this.state.collegeInputModal === '') {
+      resultField.style.height = '0px';
+    }
+  }
+
+  fetchColleges = searchTerm => {
+    return fetch(`https://api.collegeai.com/api/autocomplete/colleges?api_key=9FMs2Rj3ARpA&query=${searchTerm}`)
+    .then(res => res.json())
+    .then( async colleges => {
+      this.setState({colleges: colleges.collegeList})
+      this.handleSearchResize();
+    })
+  }
+
+  handleResults = () => {
+    if (!this.state.colleges) {
+      return null
+    } else {
+      return this.state.colleges.map((college, idx) => {
+        if (idx > 3) {
+          return null;
+        }
+        return <div className="college-li" onClick={this.handleSelection}><div className="search-term-result" >{college.name}</div></div>
+      })
+    }
+  }
+
+  handleSelection = e => {
+    let name;
+    if (e.target.className === 'college-li') {
+      let child = e.target.children[0];
+      name = child.innerText;
+    } else if (e.target.className === 'search-term-result') {
+      name = e.target.innerText;
+    }
+    this.setState({collegeInputModal: name, colleges: []})
+    let resultField = document.querySelector('.search-drop-down');
+    resultField.style.display = 'none'
+  }
+
+  handleSearchResize = () => {
+    let collegeCount = this.state.colleges.length > 4 ? (4) : (this.state.colleges.length);
+    let resultField = document.querySelector('.search-drop-down');
+    let amount = collegeCount * 0.25 * 250;
+    resultField.style.height = amount + 'px'
   }
 
   handleModalClose = e => {
@@ -56,14 +91,12 @@ export default class HomeContainer extends React.Component {
   componentDidMount() {
     let modal = document.querySelector('.create-track-modal');
     modal.style.display = 'none';
-    this.fetchAllColleges();
-    let root = document.querySelector('#root');
-    if ([root.classList].includes('login-root')) {
-      root.classList.toggle('login-root')
-    }
+    let resultBox = document.querySelector('.search-drop-down');
+    resultBox.style.height = '0px'
   }
 
   render() {
+    let results = this.handleResults();
     return(
       <>
         <div id="second-portion-home-left">
@@ -91,6 +124,7 @@ export default class HomeContainer extends React.Component {
           <Link to="/intellimatch" className="im-link"><button id="intellimatch-button">IntelliMatch</button></Link>
         </div>
         <CreateModal handleChange={this.handleChange} majorInputModal={this.state.majorInputModal} collegeInputModal={this.state.collegeInputModal} handleModalClose={this.handleModalClose} />
+        <div className="search-drop-down">{results}</div>
       </>
       )
   }
