@@ -13,6 +13,12 @@ export default class HomeContainer extends React.Component {
     let root = document.querySelector('#root');
     root.className = '';
     root.classList.toggle('home-root');
+    root.addEventListener('click', () => {
+      let searchBox = document.querySelector('.search-drop-down');
+      if (searchBox.style.display === 'flex') {
+        searchBox.style.display='none'
+      }
+    })
     this.state = {colleges: [], majorInputModal: '', collegeInputModal: '',
     }
   }
@@ -33,10 +39,12 @@ export default class HomeContainer extends React.Component {
     let modal = document.querySelector('.collegeInputModal');
     let resultField = document.querySelector('.search-drop-down');
     if (modal === e.target && this.state.collegeInputModal.length > 1) {
-      resultField.style.display = 'flex'
+      resultField.style.display = 'flex';
+      [...resultField.children].forEach(child => child.style.display = 'flex')
       this.fetchColleges(this.state.collegeInputModal)
     } else if (this.state.collegeInputModal === '') {
-      resultField.style.height = '0px';
+      resultField.style.display = 'none';
+      [...resultField.children].forEach(child => child.style.display = 'none')
     }
   }
 
