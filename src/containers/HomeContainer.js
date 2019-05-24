@@ -15,7 +15,7 @@ export default class HomeContainer extends React.Component {
     root.classList.toggle('home-root');
     root.addEventListener('click', () => {
       let searchBox = document.querySelector('.search-drop-down');
-      if (searchBox.style.display === 'flex') {
+      if (searchBox && searchBox.style.display === 'flex') {
         searchBox.style.display='none'
       }
     })
@@ -59,20 +59,25 @@ export default class HomeContainer extends React.Component {
 
   handleResults = () => {
     if (!this.state.colleges) {
-      return null
+      return null;
     } else {
-      return this.state.colleges.map((college, idx) => {
+
+      let result = this.state.colleges.map((college, idx) => {
         if (idx > 3) {
           return null;
         }
-        return <div className="college-li" onClick={this.handleSelection}><div className="search-term-result" >{college.name}</div></div>
+        return (<div className={`college-li ${college.unitId}`} onClick={this.handleSelection}><div className="search-term-result">{college.name}</div></div>)
       })
+
+      return result;
     }
   }
 
   handleSelection = e => {
     let name;
-    if (e.target.className === 'college-li') {
+    let reqObject = {};
+    let collegeList = [...e.target.classList];
+    if (collegeList.includes('college-li')) {
       let child = e.target.children[0];
       name = child.innerText;
     } else if (e.target.className === 'search-term-result') {
