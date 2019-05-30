@@ -29,7 +29,7 @@ class CreateModal extends React.Component {
           <p className="home-modal-text">Create a quick template to work on later!</p>
           <div className="modal-sec1"><label className="major-modal-label">Major</label><input type="text" onChange={this.props.handleChange} className="majorInputModal" value={this.props.majorInputModal} /></div>
           <div className="modal-sec2"><label className="college-modal-label">College</label><input type="text" onChange={this.props.handleChange} className="collegeInputModal" value={this.props.collegeInputModal} /></div>
-          <button className="modal-create-track">Create track</button>
+          <button onClick={this.props.handleCreateTrack} className="modal-create-track">Create track</button>
           <div className="spacer"></div>
         </div>
       </div>

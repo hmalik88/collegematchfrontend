@@ -19,17 +19,23 @@ export default class HomeContainer extends React.Component {
         searchBox.style.display='none'
       }
     })
-    this.state = {colleges: [], majorInputModal: '', collegeInputModal: '',
+    this.state = {
+      colleges: [],
+      majorInputModal: '',
+      collegeInputModal: '',
+      unitId: '',
+      logoPics: [],
+      tracks: []
     }
   }
 
   handleClick = e => {
-    e.target.classList.toggle('pressed-down')
+    e.target.classList.toggle('pressed-down');
   }
 
   handleModalOpen = () => {
     let modal = document.querySelector('.create-track-modal');
-    modal.style.display = 'flex';
+    modal.style.display = 'flex'
   }
 
   handleChange = e => {
@@ -66,26 +72,28 @@ export default class HomeContainer extends React.Component {
         if (idx > 3) {
           return null;
         }
-        return (<div className={`college-li ${college.unitId}`} onClick={this.handleSelection}><div className="search-term-result">{college.name}</div></div>)
+        let name = `college-li ${college.unitId}`
+        return (<div className={name} onClick={this.handleSelection}><div className="search-term-result">{college.name}</div></div>);
       })
-
       return result;
     }
   }
 
   handleSelection = e => {
     let name;
-    let reqObject = {};
     let collegeList = [...e.target.classList];
     if (collegeList.includes('college-li')) {
       let child = e.target.children[0];
       name = child.innerText;
+      this.setState({unitId: collegeList[1]})
     } else if (e.target.className === 'search-term-result') {
       name = e.target.innerText;
+      let elList = [...e.target.parentElement.classList];
+      this.setState({unitId: elList[1]})
     }
     this.setState({collegeInputModal: name, colleges: []})
     let resultField = document.querySelector('.search-drop-down');
-    resultField.style.display = 'none'
+    resultField.style.display = 'none';
   }
 
   handleSearchResize = () => {
@@ -98,18 +106,94 @@ export default class HomeContainer extends React.Component {
   handleModalClose = e => {
     let modal = document.querySelector('.create-track-modal');
     modal.style.display = 'none';
-    this.setState({majorInputModal: '', collegeInputModal: ''})
+    this.setState({majorInputModal: '', collegeInputModal: '', unitId: ''})
   }
+
+  handleCreateTrack = () => {
+    let modal = document.querySelector('.create-track-modal');
+    modal.style.display = 'none';
+    let trackObj = {
+      "college_track": {
+        "major": this.state.majorInputModal,
+        "user_id": this.props.user.id,
+        "college_id": this.state.unitId
+      }
+    }
+    let token = localStorage.getItem("token")
+    fetch('http://localhost:3000/api/v1/tracks', {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json",
+        Action: "application/json",
+        Authorization: `Bearer ${token}`
+      },
+      body: JSON.stringify(trackObj)
+    })
+    .then(res => res.json())
+    .then(json => {
+      console.log(json)
+      this.getTracks();
+    })
+  }
+
+  getTracks = () => {
+    let token = localStorage.getItem("token")
+    if (token !== null ) {
+      fetch('http://localhost:3000/api/v1/tracks', {
+      method: 'GET',
+      headers: {
+        "Content-Type": "application/json",
+        Action: "application/json",
+        Authorization: `Bearer ${token}`
+      }
+    })
+    .then(res => res.json())
+    .then(res => {
+      this.setState({tracks: res})
+      console.log(this.state.tracks.tracks)
+      this.pullLogos()
+    })
+  } else {
+    this.props.history.push("/login");
+  }
+  }
+
+  pullLogos = () => {
+    if (this.state.tracks && this.state.tracks.tracks) {
+      let list = this.state.tracks.tracks.map(track => track.college_id).join('%2C');
+      console.log(list)
+      fetch(`https://api.collegeai.com/api/college/info?api_key=9FMs2Rj3ARpA&college_unit_ids=${list}&info_ids=logo_image`)
+      .then(res => res.json())
+      .then(collegeInfo => {
+        this.setState({logoPics: collegeInfo.colleges})
+      })
+    }
+  }
+
+  generateCircles = () => {
+    if (this.state.logoPics.length > 0) {
+      console.log(this.state.logoPics)
+      return this.state.logoPics.map(logo => {
+        return (<div className="college-circle"><Link className="home-circle-link" to={`/${logo.collegeUnitId}/tracks`}><img className="home-circle-logo" src={logo.logoImage} alt="" /></Link></div>)
+      })
+    } else {
+      return null;
+    }
+  }
+
+
 
   componentDidMount() {
     let modal = document.querySelector('.create-track-modal');
     modal.style.display = 'none';
     let resultBox = document.querySelector('.search-drop-down');
     resultBox.style.height = '0px'
+    this.getTracks();
   }
 
   render() {
     let results = this.handleResults();
+    let circles = this.generateCircles();
     return(
       <>
         <div id="second-portion-home-left">
@@ -124,7 +208,7 @@ export default class HomeContainer extends React.Component {
             <img onMouseDown={this.handleClick} onMouseUp={this.handleClick} id="left-carousel-button" src={leftButton} alt="left-button" />
           </div>
           <div id="college-carousel">
-            <div id="college-1"></div>
+            {circles}
           </div>
           <div id="right-button-container">
             <img onMouseDown={this.handleClick} onMouseUp={this.handleClick} id="right-carousel-button" src={rightButton} alt="right-button" />
@@ -136,7 +220,7 @@ export default class HomeContainer extends React.Component {
         <div id="third-portion-home-right">
           <Link to="/intellimatch" className="im-link"><button id="intellimatch-button">IntelliMatch</button></Link>
         </div>
-        <CreateModal handleChange={this.handleChange} majorInputModal={this.state.majorInputModal} collegeInputModal={this.state.collegeInputModal} handleModalClose={this.handleModalClose} />
+        <CreateModal handleChange={this.handleChange} majorInputModal={this.state.majorInputModal} collegeInputModal={this.state.collegeInputModal} handleModalClose={this.handleModalClose} handleCreateTrack={this.handleCreateTrack} />
         <div className="search-drop-down">{results}</div>
       </>
       )

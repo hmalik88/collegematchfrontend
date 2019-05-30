@@ -13,7 +13,7 @@ class CollegeTrackContainer extends React.Component {
     let root = document.querySelector('#root');
     root.className = '';
     root.classList.toggle('track-root');
-    this.state = {majorInputModal: '', collegeInputModal: '', college: {}, logoPic: ''}
+    this.state = {majorInputModal: '', collegeInputModal: '', college: {}, logoPic: '', campusImage: ''}
   }
 
   handleModalOpen = () => {
@@ -44,14 +44,15 @@ class CollegeTrackContainer extends React.Component {
 
   fetchCollegeInfo = () => {
     let id = this.props.match.params.college;
-    fetch(`https://api.collegeai.com/api/college/info?api_key=9FMs2Rj3ARpA&college_unit_ids=${id}&info_ids=city%2Clogo_image%2Clong_description%2Cshort_description`)
+    fetch(`https://api.collegeai.com/api/college/info?api_key=9FMs2Rj3ARpA&college_unit_ids=${id}&info_ids=city%2Clogo_image%2Clong_description%2Cshort_description%2Ccampus_image`)
     .then(res => res.json())
     .then(collegeInfo => {
       this.setState({
         college: collegeInfo.colleges[0],
         collegeInputModal: collegeInfo.colleges[0].name,
-        logoPic: collegeInfo.colleges[0].logoImage ? (collegeInfo.colleges[0].logoImage) : (cSchool)
-
+        logoPic: collegeInfo.colleges[0].logoImage ? (collegeInfo.colleges[0].logoImage) : (cSchool),
+        campusImage: collegeInfo.colleges[0].campusImage,
+        shortDescription: collegeInfo.colleges[0].shortDescription
       })
     })
   }
@@ -86,8 +87,14 @@ class CollegeTrackContainer extends React.Component {
         <div id="top-folder">
           <div id="track-folder-left">
             <div id="left-folder-container">
-              <div id="track-pic-container"></div>
-              <div id="track-description-container"></div>
+              <div id="track-pic-container">
+                <img src={this.state.campusImage} alt="" className="campus-image-tracks" />
+              </div>
+              <div id="track-description-container">
+                <div className="track-description-text">
+                  {this.state.shortDescription}
+                </div>
+              </div>
               <div id="track-info-container">
                 <div>
                   <label className="info-label">Application Fee:</label>

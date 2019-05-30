@@ -175,7 +175,7 @@
   z-index: 5;
 }
 
-#college-1 {
+.college-circle {
   border-radius: 50%;
   width: 138px;
   height: 138px;
@@ -231,6 +231,11 @@
   flex-wrap: wrap;
 }
 
+.home-circle-logo, .home-circle-link {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
 
 
 

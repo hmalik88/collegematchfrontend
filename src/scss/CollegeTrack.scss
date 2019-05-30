@@ -143,7 +143,12 @@
   grid-column: 1 / 2;
   grid-row: 1 / 2;
   position: relative;
-  background-color: purple;
+}
+
+.campus-image-tracks {
+  width: 100%;
+  height: 100%;
+  border: 1px solid #000;
 }
 
 #track-description-container {
@@ -152,8 +157,17 @@
   grid-column: 1 / 2;
   grid-row: 3 / 4;
   display: flex;
-  background-color: yellow;
   position: relative;
+  overflow-y: scroll;
+  // border: 1px dotted #000;
+
+}
+
+.track-description-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: 200;
+  line-height: 30px;
 }
 
 #track-info-container {
