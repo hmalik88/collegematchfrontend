@@ -4,9 +4,9 @@ import addButton from '../images/add-button.svg'
 import leftButton from '../images/left_carousel_button.svg'
 import rightButton from '../images/right_carousel_button.svg'
 import CreateModal from '../components/CreateModal'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 
-export default class HomeContainer extends React.Component {
+class HomeContainer extends React.Component {
 
   constructor() {
     super()
@@ -154,7 +154,7 @@ export default class HomeContainer extends React.Component {
       this.pullLogos()
     })
   } else {
-    this.props.history.push("/login");
+    this.props.history.push("/");
   }
   }
 
@@ -180,8 +180,6 @@ export default class HomeContainer extends React.Component {
       return null;
     }
   }
-
-
 
   componentDidMount() {
     let modal = document.querySelector('.create-track-modal');
@@ -226,3 +224,5 @@ export default class HomeContainer extends React.Component {
       )
   }
 }
+
+export default withRouter(HomeContainer);

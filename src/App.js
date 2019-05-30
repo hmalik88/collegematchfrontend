@@ -59,7 +59,7 @@ class App extends Component {
     .then(res => res.json())
     .then(res => this.setState({user: res.user}))
   } else {
-    this.props.history.push("/login");
+    this.props.history.push("/");
   }
   }
 

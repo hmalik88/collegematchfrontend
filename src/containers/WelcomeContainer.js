@@ -11,6 +11,7 @@ export default class WelcomeContainer extends React.Component {
   constructor() {
     super()
     let root = document.querySelector('#root');
+    root.className = '';
     root.classList.toggle('welcome-root');
   }
 
