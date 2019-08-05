@@ -55,7 +55,7 @@ class HomeContainer extends React.Component {
   }
 
   fetchColleges = searchTerm => {
-    return fetch(`https://api.collegeai.com/api/autocomplete/colleges?api_key=9FMs2Rj3ARpA&query=${searchTerm}`)
+    return fetch(`https://api.collegeai.com/api/autocomplete/colleges?api_key=${key}&query=${searchTerm}`)
     .then(res => res.json())
     .then( async colleges => {
       this.setState({colleges: colleges.collegeList})
