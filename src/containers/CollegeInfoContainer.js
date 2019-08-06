@@ -40,7 +40,7 @@ export default class CollegeContainer extends React.Component {
   fetchCollegeInfo = () => {
     //come back to this to add in conditional setting of state based on the existence of long or short descriptions
     let id = this.props.match.params.linkName;
-    fetch(`https://api.collegeai.com/api/college/info?api_key=${key}&college_unit_ids=${id}&info_ids=city%2Ccampus_image%2Clong_description%2Cshort_description`)
+    fetch(`https://api.collegeai.com/api/college/info?api_key=as34cacd&college_unit_ids=${id}&info_ids=city%2Ccampus_image%2Clong_description%2Cshort_description`)
     .then(res => res.json())
     .then(collegeInfo => {
       this.setState({

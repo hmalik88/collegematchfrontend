@@ -55,7 +55,7 @@ class HomeContainer extends React.Component {
   }
 
   fetchColleges = searchTerm => {
-    return fetch(`https://api.collegeai.com/api/autocomplete/colleges?api_key=${key}&query=${searchTerm}`)
+    return fetch(`https://api.collegeai.com/api/autocomplete/colleges?api_key=as34cacd&query=${searchTerm}`)
     .then(res => res.json())
     .then( async colleges => {
       this.setState({colleges: colleges.collegeList})
@@ -162,7 +162,7 @@ class HomeContainer extends React.Component {
     if (this.state.tracks && this.state.tracks.tracks) {
       let list = this.state.tracks.tracks.map(track => track.college_id).join('%2C');
       console.log(list)
-      fetch(`https://api.collegeai.com/api/college/info?api_key=9FMs2Rj3ARpA&college_unit_ids=${list}&info_ids=logo_image`)
+      fetch(`https://api.collegeai.com/api/college/info?api_key=as34cacd&college_unit_ids=${list}&info_ids=logo_image`)
       .then(res => res.json())
       .then(collegeInfo => {
         this.setState({logoPics: collegeInfo.colleges})

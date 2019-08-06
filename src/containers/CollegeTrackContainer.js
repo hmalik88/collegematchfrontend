@@ -44,7 +44,7 @@ class CollegeTrackContainer extends React.Component {
 
   fetchCollegeInfo = () => {
     let id = this.props.match.params.college;
-    fetch(`https://api.collegeai.com/api/college/info?api_key=${key}&college_unit_ids=${id}&info_ids=city%2Clogo_image%2Clong_description%2Cshort_description%2Ccampus_image`)
+    fetch(`https://api.collegeai.com/api/college/info?api_key=as34cacd&college_unit_ids=${id}&info_ids=city%2Clogo_image%2Clong_description%2Cshort_description%2Ccampus_image`)
     .then(res => res.json())
     .then(collegeInfo => {
       this.setState({
